@@ -1,4 +1,4 @@
-Feature: Users Roles
+Feature: Users_Roles
   As a user 
   I can manage products, categories, and user accounts as an admin
   I can browse products, make purchases, and view orders as a customer
