@@ -8,13 +8,14 @@ public class Auth {
 	
 	public static  String email;
 	public static String password;
-	String[] emails=new String[] {"admin@gmail.com", "customer@gmail.com"};
+	static String[] emails=new String[] {"admin@gmail.com", "customer@gmail.com","installer@gmail.com", "pass"};
 	
-	public static boolean valid(String email, String password) {
-if ((email.equals("admin@gmail.com")|| email.equals("customer@gmail.com")
-		||email.equals("installer@gmail.com"))&& password.equals("pass"))
+	public static boolean valid() {
+		
+if ((email.equals(emails[0])||email.equals(emails[1])||email.equals(emails[2]))&& password.equals(emails[3])) {
 	return true;
- else return false;				
+}	
+	else return false;
 	}
 	
 	@SuppressWarnings("resource")
@@ -30,24 +31,21 @@ if ((email.equals("admin@gmail.com")|| email.equals("customer@gmail.com")
 			return true;		      
 	}
 
-	public static void signout() {
-		System. exit(0);	
-	}
-
 	public static int gohome(String email,String password) {
-		if (email.equals("admin@gmail.com")) {
+		if (email.equals(emails[0])) {
 		System.out.println("Welcome Our ADMIN!"); 
-		//ad.list();
+		//list();
 		}
-		if (email.equals("customer@gmail.com")) {
+		else if (email.equals(emails[1])) {
 			System.out.println("Welcome Our CUSTOMER!"); 
 			//cust.list();
 			}
+		else if (email.equals(emails[2])) {
+			System.out.println("Welcome Our INSTALLER!"); 
+			//cust.list();
+			}
 		return 1;
-	
-		
 	}
-
 }
 
 
