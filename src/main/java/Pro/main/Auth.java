@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Auth {
 	public Admin ad;
-	public Customer cust;
+	//public Customer cust;
 	
 	public static  String email;
 	public static String password;

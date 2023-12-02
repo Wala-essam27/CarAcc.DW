@@ -1,7 +1,6 @@
-@tag
 Feature: What customer can do?
  Browse products, make purchases, and view orders.
-  @tag1
+  
   Scenario: browsing product
   When he want to browsing 
   Then showing all products

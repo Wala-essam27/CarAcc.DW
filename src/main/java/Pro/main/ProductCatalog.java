@@ -3,7 +3,7 @@ package Pro.main;
 import java.util.ArrayList;
 import java.util.List;
 public class ProductCatalog {
-    public String[][] interiorProducts;
+   /* public String[][] interiorProducts;
     public String[][] exteriorProducts;
     public String[][] electronicsProducts;
 
@@ -64,5 +64,5 @@ public class ProductCatalog {
             }
         }
         return foundProducts.toArray(new String[0][]);
-    }
+    }*/
 }

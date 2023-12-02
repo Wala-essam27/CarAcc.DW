@@ -1,16 +1,16 @@
-@tag
+
 Feature: products
  - Categories: Products should be organized when we add
 - Product listings: Detailed product descriptions, images, prices, and availability.
 - Search and filter options to easily find products.
 
-  @tag1
+ 
   Scenario: adding product in each category
     When choose which category and add
     Then check if type if information is correct 
     And adding them to correct catagory
 
-  @tag2
+  
   Scenario: printing all products 
   When he wants to print all category
   Then printing categorys

@@ -31,7 +31,6 @@ public class TestProduct {
 	}
 
 	
-
 	@When("he wants to print one of them")
 	public void he_wants_to_print_one_of_them() {
 	   

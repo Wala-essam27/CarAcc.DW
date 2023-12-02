@@ -1,4 +1,3 @@
-
 Feature: What admin can do?
   I want to use this template for my feature file
  Manage product categories (add, edit, delete).
