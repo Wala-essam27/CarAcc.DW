@@ -5,23 +5,24 @@ Feature: What admin can do?
 Add and update product listings.
  View and manage customer accounts.
 - Schedule and manage installation appointments.
-  @tag1
+
   Scenario: Manage product
-    Given I want to write a step with precondition
-    And some other precondition
-    When I complete action
-    And some other action
-    And yet another action
-    Then I validate the outcomes
-    And check more outcomes
+    When add new category
+    Then adding it successfully
+    When choose which category and add
+    Then check if type if information is correct 
+    And adding them to correct catagory
+    When choose which category and edit
+    Then check if type if information is correct and edit
+    And done editing
+    When choose which category and delete
+    Then check if type if information is correct and delete
+    And done deleting
 
-  @tag2
-  Scenario Outline: Title of your scenario outline
-    Given I want to write a step with <name>
-    When I check for the <value> in step
-    Then I verify the <status> in step
-
-    Examples: 
-      | name  | value | status  |
-      | name1 |     5 | success |
-      | name2 |     7 | Fail    |
+ 
+  Scenario:  View and manage customer accounts
+    When view customer accounts
+    Then printing cust accounts
+    When update customer accounts
+    Then printing cust accounts
+  

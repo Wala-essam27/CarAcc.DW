@@ -3,25 +3,17 @@ Feature: What customer can do?
  Browse products, make purchases, and view orders.
   @tag1
   Scenario: browsing product
-    Given I want to write a step with precondition
-    And some other precondition
-    When I complete action
-    And some other action
-    And yet another action
-    Then I validate the outcomes
-    And check more outcomes
+  When he want to browsing 
+  Then showing all products
 
  Scenario: make purchase
-    Given I want to write a step with precondition
-    And some other precondition
-    When I complete action
-    And some other action
-    And yet another action
-    Then I validate the outcomes
-    And check more outcomes
-    
-     Scenario: view orders
-    When he want to view order
-    Then I validate the outcomes
+ When choose a category 
+ Then printing it only
+ And he must choose a one 
+ And adding them to orders
+ 
+ Scenario: view orders
+ When he want to view order
+ Then printing the orders
    
 

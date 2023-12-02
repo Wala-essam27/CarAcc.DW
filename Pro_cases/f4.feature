@@ -1,24 +1,25 @@
 @tag
 Feature: products
-  I want to use this template for my feature file
+ - Categories: Products should be organized when we add
+- Product listings: Detailed product descriptions, images, prices, and availability.
+- Search and filter options to easily find products.
 
   @tag1
-  Scenario: Title of your scenario
-    Given I want to write a step with precondition
-    And some other precondition
-    When I complete action
-    And some other action
-    And yet another action
-    Then I validate the outcomes
-    And check more outcomes
+  Scenario: adding product in each category
+    When choose which category and add
+    Then check if type if information is correct 
+    And adding them to correct catagory
 
   @tag2
-  Scenario Outline: Title of your scenario outline
-    Given I want to write a step with <name>
-    When I check for the <value> in step
-    Then I verify the <status> in step
-
-    Examples: 
-      | name  | value | status  |
-      | name1 |     5 | success |
-      | name2 |     7 | Fail    |
+  Scenario: printing all products 
+  When he wants to print all category
+  Then printing categorys
+  
+    Scenario: printing one of category
+  When he wants to print one of them 
+  Then printing one of categorys
+  
+    Scenario: searching 
+  When he wants to search
+  Then he can see all options 
+   
