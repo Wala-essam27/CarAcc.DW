@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Customer {
 
-	 private ProductCatalog productCatalog;
+	/*  private ProductCatalog productCatalog;
 	    private List<String[]> orders;
 
 	    public Customer(ProductCatalog productCatalog) {
@@ -13,7 +13,7 @@ public class Customer {
 	        this.orders = new ArrayList<String[]>();
 	    }
 
-	    public void makePurchase(String categoryName, int productIndex) {
+	   public void makePurchase(String categoryName, int productIndex) {
 	        String[] product = getProductFromCategory(categoryName, productIndex);
 	        if (product != null) {
 	            orders.add(product);
@@ -24,18 +24,9 @@ public class Customer {
 	    }
 
 	    private String[] getProductFromCategory(String categoryName, int productIndex) {
-	        switch (categoryName.toLowerCase()) {
-	            case "interior":
-	                return getProductFromList(productCatalog.getInteriorProducts(), productIndex);
-	            case "exterior":
-	                return getProductFromList(productCatalog.getExteriorProducts(), productIndex);
-	            case "electronics":
-	                return getProductFromList(productCatalog.getElectronicsProducts(), productIndex);
-	            default:
-	                System.out.println("Invalid category name. Please use 'interior', 'exterior', or 'electronics'.");
-	                return null;
+			return null;
+	       
 	        }
-	    }
 
 
 	    public void viewOrders() {
@@ -51,5 +42,6 @@ public class Customer {
 	
 
 
-
+	    
+*/
 }
