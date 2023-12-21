@@ -3,9 +3,7 @@ package Pro.main;
 import java.util.Scanner;
 
 public class Auth {
-	public Admin ad;
-	//public Customer cust;
-	
+	public Admin ad;	
 	public static  String email;
 	public static String password;
 	static String[] emails=new String[] {"admin@gmail.com", "customer@gmail.com","installer@gmail.com", "pass"};
@@ -34,15 +32,15 @@ if ((email.equals(emails[0])||email.equals(emails[1])||email.equals(emails[2]))&
 	public static int gohome(String email,String password) {
 		if (email.equals(emails[0])) {
 		System.out.println("Welcome Our ADMIN!"); 
-		//list();
+		Admin.list();
 		}
 		else if (email.equals(emails[1])) {
 			System.out.println("Welcome Our CUSTOMER!"); 
-			//cust.list();
+			Customer.list();
 			}
 		else if (email.equals(emails[2])) {
 			System.out.println("Welcome Our INSTALLER!"); 
-			//cust.list();
+		
 			}
 		return 1;
 	}
