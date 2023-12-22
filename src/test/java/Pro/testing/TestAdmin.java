@@ -16,38 +16,32 @@ public void add_new_category() {
 
 @Then("adding it successfully")
 public void adding_it_successfully() {
+	 System.out.println("Successfully adding.");
 	assertEquals(true,true);
 }
 
 
 @When("choose which category and edit")
 public void choose_which_category_and_edit() {
-  
+	assertEquals(true,catalog.editProduct());
 }
 
-@Then("check if type if information is correct and edit")
-public void check_if_type_if_information_is_correct_and_edit() {
-	assertEquals(true,true);
-}
+
 
 @Then("done editing")
 public void done_editing() {
 	assertEquals(true,true); 
 }
 
-@When("choose which category and delete")
+@When("choose which product and delete")
 public void choose_which_category_and_delete() {
-   
+	assertEquals(true,catalog.deleteProduct());
 }
 
-@Then("check if type if information is correct and delete")
-public void check_if_type_if_information_is_correct_and_delete() {
-	assertEquals(true,true);
-}
 
 @Then("done deleting")
 public void done_deleting() {
-	assertEquals(true,true);  
+	assertEquals(true,true); 
 }
 
 @When("view customer accounts")

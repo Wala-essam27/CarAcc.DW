@@ -41,28 +41,33 @@ public class ProductCatalog {
 
 
     public int addProductCategory() {
-    	@SuppressWarnings("resource")
-		Scanner scanner = new Scanner(System.in);
-    	System.out.println("Enter Category details:");
-        scanner.nextLine(); // Consume the newline character
+        @SuppressWarnings("resource")
+		Scanner scanne = new Scanner(System.in);
+        System.out.println("Enter Category details:");
+        scanne.nextLine(); 
         System.out.print("Category Name: ");
-        String categoryName = scanner.nextLine();
-        System.out.print("max Size: ");
-        int maxProducts = Integer. parseInt(scanner.nextLine());
-        String[][] newCategory = new String[maxProducts][4];
-        productCategories.add(newCategory);
-        System.out.println("Enter product details:");
+        String categoryName = scanne.nextLine();
+        System.out.println("\nEnter product details:");
         System.out.print("Product Name: ");
-        String name = scanner.nextLine();
+        String name = scanne.nextLine();
         System.out.print("Description: ");
-        String description = scanner.nextLine();
+        String description = scanne.nextLine();
         System.out.print("Price: ");
-        String price = scanner.nextLine();
+        String price = scanne.nextLine();
         System.out.print("Availability: ");
-        String availability = scanner.nextLine();
-        addProduct(categoryName, name, description, price, availability);
+        String availability = scanne.nextLine();
+        String[][] newCategory = new String[][] {
+          	 {categoryName, null, null, null},
+               {name, description, price, availability},
+               {null, null, null, null},
+               {null, null, null, null},
+               {null, null, null, null}};
+           productCategories.add(newCategory);
+        
         System.out.println("New product category '" + categoryName + "' added.");
-        return 1;}
+        return 1;
+        
+    }
 
     public void addProduct(String categoryName, String name, String description, String price, String availability) {
         for (String[][] category : productCategories) {
@@ -90,9 +95,9 @@ public class ProductCatalog {
 
         for (String[][] category : productCategories) {
             for (String[] product : category) {
-            	
-                if (product[0] != null && product[1] != null&& product[2] != null&& product[3] != null) {
-                	System.out.println("Category: " + category[0][0]);
+
+                if (product[0] != null && product[1] != null && product[2] != null && product[3] != null) {
+                    System.out.println("Category: " + category[0][0]);
                     System.out.println("Product: " + product[0]);
                     System.out.println("Description: " + product[1]);
                     System.out.println("Price: " + product[2]);
@@ -101,8 +106,9 @@ public class ProductCatalog {
                 }
             }
         }
-		return true;
+        return true;
     }
+
     
     public void searchAndFilterProducts(String keyword) {
         List<String[]> foundProducts = new ArrayList<>();
@@ -163,11 +169,11 @@ public class ProductCatalog {
         String productName = scnner.nextLine();
         System.out.print("NEW Product Name: ");
         String newName = scnner.nextLine();
-        System.out.print("Description: ");
+        System.out.print("NEW Description: ");
         String newDescription = scnner.nextLine();
-        System.out.print("Price: ");
+        System.out.print("NEW Price: ");
         String newPrice = scnner.nextLine();
-        System.out.print("Availability: ");
+        System.out.print("NEW Availability: ");
         String newAvailability = scnner.nextLine();
     	
     	    	

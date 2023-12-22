@@ -9,14 +9,12 @@ Add and update product listings.
     When add new category
     Then adding it successfully
     When choose which category and add
-    Then check if type if information is correct 
-    And adding them to correct catagory
+    Then adding them to correct catagory
     When choose which category and edit
-    Then check if type if information is correct and edit
-    And done editing
-    When choose which category and delete
-    Then check if type if information is correct and delete
-    And done deleting
+    Then done editing
+    When choose which product and delete
+    Then done deleting
+   
 
  
   Scenario:  View and manage customer accounts
