@@ -47,22 +47,29 @@ while (true) {
               catalog.addProduct(categoryName, name, description, price, availability);
               break;
         case 3:
+        	 catalog.editProduct();
+        	
+        	 break;
+        case 4:
+        	catalog.deleteProduct();
+        	 break;
+        case 5:
         	
         	catalog.addProductCategory();
             break;
-        case 4:
+        case 6:
         	 System.out.println("Enter keyword to search:");
              scanner.nextLine(); 
              String searchKeyword = scanner.nextLine();
              catalog.searchAndFilterProducts(searchKeyword);
             break;
-        case 5:
+        case 7:
         	Customer.view_account();
         	break;
-        case 6:
+        case 8:
         	Customer.edit_account();
         	 break;
-        case 7:
+        case 9:
              break;
         case 0:
             System.out.println("Exiting the admin menu. Goodbye!");

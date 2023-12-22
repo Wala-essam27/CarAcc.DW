@@ -39,10 +39,8 @@ public class Customer {
 	                    break;
 	                case 5:
 	                	catalog.viewAllProducts();
-	                	Scanner canner = new Scanner(System.in);
-	                     System.out.println("Enter the name of product: ");
-	                     String productName = canner.nextLine();
-	                     makePurchase(productName);
+	                
+	                     makePurchase();
 	                     break; 
 	                case 6:
 	                	viewOrders(); 
@@ -133,9 +131,11 @@ public class Customer {
 	    }
 
 
-	    public static void makePurchase( String productName) {
+	    public static boolean makePurchase( ) {
 	    	 List<String[]> order = new ArrayList<>();
-
+	    		Scanner canner = new Scanner(System.in);
+                System.out.println("Enter the name of product: ");
+                String productName = canner.nextLine();
 	         for (String[][] category : ProductCatalog.productCategories) {
 	             for (String[] product : category) {
 	                 if (product != null && product[0] != null && product[1] != null &&
@@ -144,13 +144,15 @@ public class Customer {
 	                      product[1].toLowerCase().contains(productName.toLowerCase()) ||
 	                      product[2].toLowerCase().contains(productName.toLowerCase()) ||
 	                      product[3].toLowerCase().contains(productName.toLowerCase()))) {
-	                	 orders.add(product);
+	                	 order.add(product);
 	                	 System.out.println("Succesfully purchase.");  }
 	                 else System.out.println("Something Wrong.");}
+	             return true;
 	         }
+			return true;
 	         }
 
-	    public static void viewOrders() {
+	    public static boolean viewOrders() {
 	        System.out.println("Customer's Orders:");
 	        System.out.println("----------------------------------------------------");
 	        System.out.println("Category\tProduct\tPrice\tAvailability");
@@ -159,6 +161,7 @@ public class Customer {
 	            System.out.println(order[0] + "\t" + order[1] + "\t" + order[2] + "\t" + order[3]);
 	        }
 	        System.out.println("----------------------------------------------------");
+			return true;
 	    }
 
 

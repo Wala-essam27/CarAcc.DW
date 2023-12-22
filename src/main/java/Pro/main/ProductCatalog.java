@@ -134,7 +134,10 @@ public class ProductCatalog {
             }
         }
     }
-    public boolean deleteProduct(String productName) {
+    public boolean deleteProduct() {
+    	Scanner scanner = new Scanner(System.in);
+    	System.out.println("Enter product Name:");
+        String productName = scanner.nextLine();
         for (String[][] category : productCategories) {
             for (String[] product : category) {
                 if (product != null && product[0] != null && product[0].equalsIgnoreCase(productName)) {
@@ -153,11 +156,24 @@ public class ProductCatalog {
         return false;
     }
 
-    public boolean editProduct(String productName, String newName, String newDescription, String newPrice, String newAvailability) {
-        for (String[][] category : productCategories) {
+    public boolean editProduct() {
+    	Scanner scnner = new Scanner(System.in);
+    	System.out.println("Enter product details:");
+        System.out.print("Product Name: ");
+        String productName = scnner.nextLine();
+        System.out.print("NEW Product Name: ");
+        String newName = scnner.nextLine();
+        System.out.print("Description: ");
+        String newDescription = scnner.nextLine();
+        System.out.print("Price: ");
+        String newPrice = scnner.nextLine();
+        System.out.print("Availability: ");
+        String newAvailability = scnner.nextLine();
+    	
+    	    	
+    	for (String[][] category : productCategories) {
             for (String[] product : category) {
                 if (product != null && product[0] != null && product[0].equalsIgnoreCase(productName)) {
-                    // Found the product, update its information
                     product[0] = newName;
                     product[1] = newDescription;
                     product[2] = newPrice;
