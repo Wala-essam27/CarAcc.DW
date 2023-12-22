@@ -32,20 +32,23 @@ if ((email.equals(emails[0])&&password.equals(emails[4]))||
 			return true;		      
 	}
 
-	public static int gohome(String email,String password) {
+	public static boolean gohome(String email,String password) {
 		if (email.equals(emails[0])) {
 		System.out.println("\nWelcome Our ADMIN!"); 
 		Admin.list();
+		return true;
 		}
 		else if (email.equals(emails[1])||email.equals(emails[2])) {
 			System.out.println("\nWelcome Our CUSTOMER!"); 
 			Customer.list();
+			return true;
 			}
 		else if (email.equals(emails[3])) {
 			System.out.println("\nWelcome Our INSTALLER!"); 
+			return true;
 		
 			}
-		return 1;
+		return true;
 	}
 }
 

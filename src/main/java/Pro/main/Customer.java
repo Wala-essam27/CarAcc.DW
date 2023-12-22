@@ -69,7 +69,7 @@ public class Customer {
 	}
 	
 	
-	public static void view_account()
+	public static boolean view_account()
 	{
 		System.out.println("\n1. Customer1 \n");
     	System.out.println("Email: ");
@@ -82,10 +82,11 @@ public class Customer {
     	System.out.println("Password: ");
     	System.out.println(Auth.emails[6]);
     	System.out.println("\n");
+		return true;
     	
 	}
 	
-	public static void edit_account()
+	public static boolean edit_account()
 	{
 		view_account();
 		Scanner scanner = new Scanner(System.in);
@@ -107,7 +108,8 @@ public class Customer {
              String pass = scanner.nextLine();
              Auth.emails[2]=em;
              Auth.emails[6]=pass;
-         }else System.out.println("\nWrong number."); 	
+         }else System.out.println("\nWrong number.");
+		return true; 	
     	
 	}
 	
@@ -143,10 +145,10 @@ public class Customer {
 	                      product[2].toLowerCase().contains(productName.toLowerCase()) ||
 	                      product[3].toLowerCase().contains(productName.toLowerCase()))) {
 	                	 orders.add(product);
-	                 }
-	             }
+	                	 System.out.println("Succesfully purchase.");  }
+	                 else System.out.println("Something Wrong.");}
 	         }
-	         System.out.println("Succesfully purchase.");}
+	         }
 
 	    public static void viewOrders() {
 	        System.out.println("Customer's Orders:");

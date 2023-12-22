@@ -6,9 +6,8 @@ Feature: What customer can do?
   Then showing all products
 
  Scenario: make purchase
- When choose a category 
- Then printing it only
- And he must choose a one 
+ When showing the catalog
+ Then choose a product 
  And adding them to orders
  
  Scenario: view orders

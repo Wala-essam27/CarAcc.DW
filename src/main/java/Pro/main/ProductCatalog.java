@@ -40,10 +40,17 @@ public class ProductCatalog {
     }
 
 
-    public void addProductCategory(int maxProducts, String categoryName) {
+    public int addProductCategory() {
+    	@SuppressWarnings("resource")
+		Scanner scanner = new Scanner(System.in);
+    	System.out.println("Enter Category details:");
+        scanner.nextLine(); // Consume the newline character
+        System.out.print("Category Name: ");
+        String categoryName = scanner.nextLine();
+        System.out.print("max Size: ");
+        int maxProducts = Integer. parseInt(scanner.nextLine());
         String[][] newCategory = new String[maxProducts][4];
         productCategories.add(newCategory);
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Enter product details:");
         System.out.print("Product Name: ");
         String name = scanner.nextLine();
@@ -54,7 +61,8 @@ public class ProductCatalog {
         System.out.print("Availability: ");
         String availability = scanner.nextLine();
         addProduct(categoryName, name, description, price, availability);
-        System.out.println("New product category '" + categoryName + "' added.");}
+        System.out.println("New product category '" + categoryName + "' added.");
+        return 1;}
 
     public void addProduct(String categoryName, String name, String description, String price, String availability) {
         for (String[][] category : productCategories) {
@@ -72,10 +80,10 @@ public class ProductCatalog {
         }
         System.out.println("Category '" + categoryName + "' not found.");
     }
-    public void viewAllProducts() {
+    public boolean viewAllProducts() {
         if (productCategories.isEmpty()) {
             System.out.println("No products in the catalog.");
-            return;
+            return true;
         }
 
         System.out.println("\n All Products in the Catalog:\n");
@@ -93,6 +101,7 @@ public class ProductCatalog {
                 }
             }
         }
+		return true;
     }
     
     public void searchAndFilterProducts(String keyword) {
@@ -124,6 +133,43 @@ public class ProductCatalog {
                 System.out.println("------------------------");
             }
         }
+    }
+    public boolean deleteProduct(String productName) {
+        for (String[][] category : productCategories) {
+            for (String[] product : category) {
+                if (product != null && product[0] != null && product[0].equalsIgnoreCase(productName)) {
+                    // Found the product, set its information to null
+                    product[0] = null;
+                    product[1] = null;
+                    product[2] = null;
+                    product[3] = null;
+                    System.out.println("Product '" + productName + "' deleted.");
+                    return true;
+                }
+            }
+        }
+
+        System.out.println("Product '" + productName + "' not found.");
+        return false;
+    }
+
+    public boolean editProduct(String productName, String newName, String newDescription, String newPrice, String newAvailability) {
+        for (String[][] category : productCategories) {
+            for (String[] product : category) {
+                if (product != null && product[0] != null && product[0].equalsIgnoreCase(productName)) {
+                    // Found the product, update its information
+                    product[0] = newName;
+                    product[1] = newDescription;
+                    product[2] = newPrice;
+                    product[3] = newAvailability;
+                    System.out.println("Product '" + productName + "' updated.");
+                    return true;
+                }
+            }
+        }
+
+        System.out.println("Product '" + productName + "' not found.");
+        return false;
     }
 
     
