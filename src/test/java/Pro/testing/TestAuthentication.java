@@ -17,7 +17,7 @@ public class TestAuthentication {
 @When("he enter the valid email and password")
 public void he_enter_the_valid_email_and_password() {
 	assertEquals(true,Auth.valid());
-	System.out.println(Auth.email+ Auth.password);
+	//System.out.println(Auth.email+ Auth.password);
 	
 	//System.out.println("1 PLEASE try again.");
 	

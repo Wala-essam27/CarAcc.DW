@@ -97,16 +97,37 @@ public class ProductCatalog {
         }
     }
     
-    public String[][] searchProducts(String keyword) {
+    public void searchAndFilterProducts(String keyword) {
         List<String[]> foundProducts = new ArrayList<>();
+
         for (String[][] category : productCategories) {
             for (String[] product : category) {
-                if (product[0] != null && (product[0].toLowerCase().contains(keyword.toLowerCase()) ||
-                        product[1].toLowerCase().contains(keyword.toLowerCase()))) {
+                if (product != null && product[0] != null && product[1] != null &&
+                    product[2] != null && product[3] != null &&
+                    (product[0].toLowerCase().contains(keyword.toLowerCase()) ||
+                     product[1].toLowerCase().contains(keyword.toLowerCase()) ||
+                     product[2].toLowerCase().contains(keyword.toLowerCase()) ||
+                     product[3].toLowerCase().contains(keyword.toLowerCase()))) {
                     foundProducts.add(product);
                 }
             }
         }
-        return foundProducts.toArray(new String[0][]);
+
+        if (foundProducts.isEmpty()) {
+            System.out.println("No products found matching the keyword: " + keyword);
+        } else {
+            System.out.println("Found Products Matching '" + keyword + "':");
+            for (String[] product : foundProducts) {
+                System.out.println("Category: " + product[0]);
+                System.out.println("Product: " + product[1]);
+                System.out.println("Description: " + product[2]);
+                System.out.println("Price: " + product[3]);
+                System.out.println("Availability: " + product[4]);
+                System.out.println("------------------------");
+            }
+        }
     }
+
+    
+   
 }

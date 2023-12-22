@@ -15,8 +15,10 @@ while (true) {
     System.out.println("1. Show product categories");
     System.out.println("2. Add and update product listings");
     System.out.println("3. Add a new catagory.");
-    System.out.println("4. View and manage customer accounts");
-    System.out.println("5. Schedule and manage installation appointments");
+    System.out.println("4. Search for a product.");
+    System.out.println("5. View customer accounts");
+    System.out.println("6. Manage customer accounts");
+    System.out.println("7. Schedule and manage installation appointments");
     System.out.println("0. Exit");
 
     System.out.print("\n Enter your choice: ");
@@ -25,9 +27,7 @@ while (true) {
     switch (choice) {
     
         case 1:
-        	
              catalog.viewAllProducts();
-           
             break;
         case 2:
         	  System.out.println("Enter product details:");
@@ -50,13 +50,24 @@ while (true) {
             scanner.nextLine(); // Consume the newline character
             System.out.print("Category Name: ");
             String categoryNam = scanner.nextLine();
-            System.out.print("max Size ");
+            System.out.print("max Size: ");
             int size = Integer. parseInt(scanner.nextLine());
         	catalog.addProductCategory(size, categoryNam);
             break;
         case 4:
-           
+        	Customer.view_acount();
             break;
+        case 5:
+        	Customer.edit_account();
+        	break;
+        case 6:
+        	 break;
+        case 7:
+        	 System.out.println("Enter keyword to search:");
+             scanner.nextLine(); // Consume the newline character
+             String searchKeyword = scanner.nextLine();
+             catalog.searchAndFilterProducts(searchKeyword);
+             break;
         case 0:
             System.out.println("Exiting the admin menu. Goodbye!");
             scanner.close();
