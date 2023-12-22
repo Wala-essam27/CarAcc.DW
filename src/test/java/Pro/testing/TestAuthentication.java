@@ -17,15 +17,12 @@ public class TestAuthentication {
 @When("he enter the valid email and password")
 public void he_enter_the_valid_email_and_password() {
 	assertEquals(true,Auth.valid());
-	//System.out.println(Auth.email+ Auth.password);
-	
-	//System.out.println("1 PLEASE try again.");
 	
 }
 	@Then("he should go to the home page")
 	public void he_should_go_to_the_home_page() {
 		 assertEquals(1, Auth.gohome(Auth.email, Auth.password));
-		 //System.out.println("2 PLEASE try again.");
+		 
 	}
 	
 	@When("he enter the invalid email and password")

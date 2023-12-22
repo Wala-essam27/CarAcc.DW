@@ -12,20 +12,19 @@ public class Admin {
 while (true) {
 	
     System.out.println("\n Admin Menu:");
-    System.out.println("1. Show product categories");
-    System.out.println("2. Add and update product listings");
+    System.out.println("1. Show product categories.");
+    System.out.println("2. Add and update product listings.");
     System.out.println("3. Add a new catagory.");
     System.out.println("4. Search for a product.");
-    System.out.println("5. View customer accounts");
-    System.out.println("6. Manage customer accounts");
-    System.out.println("7. Schedule and manage installation appointments");
+    System.out.println("5. View customer accounts.");
+    System.out.println("6. Manage customer accounts.");
+    System.out.println("7. Schedule and manage installation appointments.");
     System.out.println("0. Exit");
 
     System.out.print("\n Enter your choice: ");
     int choice = scanner.nextInt();
 
     switch (choice) {
-    
         case 1:
              catalog.viewAllProducts();
             break;
@@ -55,18 +54,18 @@ while (true) {
         	catalog.addProductCategory(size, categoryNam);
             break;
         case 4:
-        	Customer.view_acount();
-            break;
-        case 5:
-        	Customer.edit_account();
-        	break;
-        case 6:
-        	 break;
-        case 7:
         	 System.out.println("Enter keyword to search:");
-             scanner.nextLine(); // Consume the newline character
+             scanner.nextLine(); 
              String searchKeyword = scanner.nextLine();
              catalog.searchAndFilterProducts(searchKeyword);
+            break;
+        case 5:
+        	Customer.view_account();
+        	break;
+        case 6:
+        	Customer.edit_account();
+        	 break;
+        case 7:
              break;
         case 0:
             System.out.println("Exiting the admin menu. Goodbye!");

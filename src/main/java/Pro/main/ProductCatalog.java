@@ -5,12 +5,11 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ProductCatalog {
-    private List<String[][]> productCategories;
+    public static List<String[][]> productCategories;
 
     public ProductCatalog() {
-    	 this.productCategories = new ArrayList<>();
+    	 ProductCatalog.productCategories = new ArrayList<>();
 
-        // Initialize with some initial values (example)
         String[][] InteriorCategory = new String[][] {
         	 {"Interior", null, null, null},
              {"Seat Covers", "Custom-fit seat covers for comfort", "$29.99", "In Stock"},
@@ -35,7 +34,6 @@ public class ProductCatalog {
              {null, null, null, null}
         };
 
-        // Add initialized categories to the list
         productCategories.add(ElectronicsCategory);
         productCategories.add(ExteriorCategory);
         productCategories.add(InteriorCategory);
@@ -80,7 +78,7 @@ public class ProductCatalog {
             return;
         }
 
-        System.out.println("All Products in the Catalog:");
+        System.out.println("\n All Products in the Catalog:\n");
 
         for (String[][] category : productCategories) {
             for (String[] product : category) {
@@ -116,13 +114,13 @@ public class ProductCatalog {
         if (foundProducts.isEmpty()) {
             System.out.println("No products found matching the keyword: " + keyword);
         } else {
-            System.out.println("Found Products Matching '" + keyword + "':");
+            System.out.println("\nFound Products Matching '" + keyword + "':");
             for (String[] product : foundProducts) {
-                System.out.println("Category: " + product[0]);
-                System.out.println("Product: " + product[1]);
-                System.out.println("Description: " + product[2]);
-                System.out.println("Price: " + product[3]);
-                System.out.println("Availability: " + product[4]);
+                //System.out.println("Category: " + product[0]);
+                System.out.println("\nProduct: " + product[0]);
+                System.out.println("Description: " + product[1]);
+                System.out.println("Price: " + product[2]);
+                System.out.println("Availability: " + product[3]);
                 System.out.println("------------------------");
             }
         }
