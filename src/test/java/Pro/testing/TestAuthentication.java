@@ -49,8 +49,7 @@ public void he_enter_the_valid_email_and_password() {
 public void request_to_sign_again() {
 	if (flagg == 0)
 	{assertEquals(true,Auth.sign());
-	assertEquals(true, Auth.gohome(Auth.email, Auth.password));
-	assertEquals(false,false);}
+	assertEquals(true, Auth.gohome(Auth.email, Auth.password));}
 	else assertEquals(true,true);
 }
 }

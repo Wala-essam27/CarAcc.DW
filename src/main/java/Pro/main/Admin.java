@@ -30,13 +30,13 @@ while (true) {
 if (adchoice<0 ||adchoice >9)
 	{System.out.println("Invalid choice. Please enter a valid option.");
 return;}
-    switch (adchoice) {
+   switch (adchoice) {
         case 1:
              catalog.viewAllProducts();
             break;
         case 2:
-        	  System.out.println("Enter product details:");
-              scanner.nextLine(); // Consume the newline character
+        	  System.out.println("Enter product details:\n\n");
+              
               System.out.print("Category Name: ");
               String categoryName = scanner.nextLine();
               System.out.print("Product Name: ");

@@ -15,13 +15,13 @@ public class TestCustomer {
 
 	@Then("showing all products")
 	public void showing_all_products() {
-		//assertEquals(true,catalog.viewAllProducts());
+		
 	}
 
 
 @When("showing the catalog")
 public void showing_the_catalog() {
-	//assertEquals(true,catalog.viewAllProducts());
+	
 }
 
 @Then("choose a product")

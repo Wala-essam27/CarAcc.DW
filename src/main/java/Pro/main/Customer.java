@@ -1,15 +1,23 @@
 package Pro.main;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 public class Customer {
+	static orderManager ord = new orderManager();
+	static int flag=0;
+	
+	public Customer() {
+	    	
+	    }
 	public static void list(){
-		ProductCatalog catalog = new ProductCatalog()
-				;
+		
+		ProductCatalog catalog = new ProductCatalog();		
 		Scanner scanner = new Scanner(System.in);
 		 while ( true) {
+			 Customer cust =  new Customer();
 	            System.out.println("\n Customer Menu: \n");
 	            System.out.println("1. View profile.");
 	            System.out.println("2. Edit profile.");
@@ -20,8 +28,11 @@ public class Customer {
 	            System.out.println("0. Exit");
 
 	            System.out.print("\nEnter your choice: ");
-	            int choice = scanner.nextInt();
-	            switch (choice) {
+	            int custchoice = scanner.nextInt();
+	            if (custchoice<0 ||custchoice >9)
+	        	{System.out.println("Invalid choice. Please enter a valid option.");
+	        return;}
+	            switch (custchoice) {
 	                case 1:
 	                	view_myaccount();
 	                	break;
@@ -33,22 +44,21 @@ public class Customer {
 	                    break;
 	                case 4:
 	                	 System.out.println("Enter keyword to search:");
-	                     scanner.nextLine(); 
-	                     String searchKeyword = scanner.nextLine();
+	                	 String searchKeyword = scanner.nextLine();
 	                     catalog.searchAndFilterProducts(searchKeyword);
 	                    break;
 	                case 5:
 	                	catalog.viewAllProducts();
 	                
-	                     makePurchase();
+	                  ord.purchaseProduct(catalog);
 	                     break; 
 	                case 6:
-	                	viewOrders(); 
+	                	ord.viewOrder(); 
 	                    break;	
 	                case 0:
 	                    System.out.println("Exiting the customer menu. Goodbye!");
 	                    scanner.close();
-	                    System.exit(0);
+	                    return;
 	                default:
 	                    System.out.println("Invalid choice. Please enter a valid option.");
 	            }
@@ -122,49 +132,7 @@ public class Customer {
              Auth.emails[1]=em;
              Auth.emails[5]=pass;    	
 	}
+}
 	
-	  private ProductCatalog productCatalog;
-	    private static List<String[]> orders;
-	    public Customer(ProductCatalog productCatalog) {
-	        this.productCatalog = productCatalog;
-	        this.orders = new ArrayList<String[]>();
-	    }
-
-
-	    public static boolean makePurchase( ) {
-	    	 List<String[]> order = new ArrayList<>();
-	    		Scanner canner = new Scanner(System.in);
-                System.out.println("Enter the name of product: ");
-                String productName = canner.nextLine();
-	         for (String[][] category : ProductCatalog.productCategories) {
-	             for (String[] product : category) {
-	                 if (product != null && product[0] != null && product[1] != null &&
-	                     product[2] != null && product[3] != null &&
-	                     (product[0].toLowerCase().contains(productName.toLowerCase()) ||
-	                      product[1].toLowerCase().contains(productName.toLowerCase()) ||
-	                      product[2].toLowerCase().contains(productName.toLowerCase()) ||
-	                      product[3].toLowerCase().contains(productName.toLowerCase()))) {
-	                	 order.add(product);
-	                	 System.out.println("Succesfully purchase.");  }
-	                 else System.out.println("Something Wrong.");}
-	             return true;
-	         }
-			return true;
-	         }
-
-	    public static boolean viewOrders() {
-	        System.out.println("Customer's Orders:");
-	        System.out.println("----------------------------------------------------");
-	        System.out.println("Category\tProduct\tPrice\tAvailability");
-	        System.out.println("----------------------------------------------------");
-	        for (String[] order : orders) {
-	            System.out.println(order[0] + "\t" + order[1] + "\t" + order[2] + "\t" + order[3]);
-	        }
-	        System.out.println("----------------------------------------------------");
-			return true;
-	    }
-
-
 	    
 
-}
