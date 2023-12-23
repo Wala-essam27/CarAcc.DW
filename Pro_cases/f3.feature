@@ -25,7 +25,7 @@ Add and update product listings.
     
     
  Scenario: searching product
-  When he want to search a product
+  When he want to search a product 'key'
   Then searching done 
   
   

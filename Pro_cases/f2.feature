@@ -7,7 +7,7 @@ Feature: What customer can do?
 
  Scenario: make purchase
  When showing the catalog
- Then choose a product 
+ Then choose a product  
  And adding them to orders
  
  Scenario: view orders
@@ -21,7 +21,7 @@ Scenario: edit profile
   
   
 Scenario: searching product
-  When he want to search a product
+  When he want to search a product 'key'
   Then searching done 
   
   

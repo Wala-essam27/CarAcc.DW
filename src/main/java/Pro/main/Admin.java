@@ -11,7 +11,6 @@ public class Admin {
     ProductCatalog catalog = new ProductCatalog();
 	Scanner scanner = new Scanner(System.in);
 while (true) {
-	
     System.out.println("\n Admin Menu:");
     System.out.println("1. Show product categories.");
     System.out.println("2. Add product listings.");
@@ -23,7 +22,6 @@ while (true) {
     System.out.println("8. Manage customer accounts.");
     System.out.println("9. Schedule and manage installation appointments.");
     System.out.println("0. Exit");
-    
 
     System.out.print("\n Enter your choice: ");
    adchoice = scanner.nextInt();
@@ -35,9 +33,9 @@ return;}
              catalog.viewAllProducts();
             break;
         case 2:
-        	  System.out.println("Enter product details:\n\n");
-              
-              System.out.print("Category Name: ");
+        	  System.out.println("Enter product details:\n");
+        	  String s=scanner.nextLine();
+              System.out.print("Catagory Name: ");
               String categoryName = scanner.nextLine();
               System.out.print("Product Name: ");
               String name = scanner.nextLine();
