@@ -14,12 +14,12 @@ Feature: products
   When he wants to print all category
   Then printing categorys
   
-    Scenario: 
-  When he wants to print one of them 
-  Then printing one of categorys
+    Scenario: editing
+  When he wants to editing one of them and choose one
+  Then printing the result
   
     Scenario: searching 
-  When he wants to search
+  When he wants to search 'key'
   Then he can see all options 
   
   

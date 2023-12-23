@@ -52,18 +52,39 @@ public class TestProduct {
 			assertEquals(true,true);
 	}
 
-	
 
 
-	@When("he wants to search")
-	public void he_wants_to_search() {
-		if (Admin.adchoice==8) {
-			flagg=1;
-			assertEquals(true,true);
-		}
+@When("he wants to editing one of them and choose one")
+public void he_wants_to_editing_one_of_them_and_choose_one() {
+	if (Admin.adchoice==3) {
+		flagg=1;
+		catalog.editProduct();
+		assertEquals(true,true);}
 
 	else flagg=0;
+}
+
+@Then("printing the result")
+public void printing_the_result() {
+	if (Admin.adchoice==3) {
+		flagg=1;
+		catalog.viewAllProducts();
+		assertEquals(true,true);}
+
+	else flagg=0;
+}
+
+@SuppressWarnings("static-access")
+@When("he wants to search {string}")
+public void he_wants_to_search(String string) {
+	if (Admin.adchoice==6||cust.custchoice==4) {
+		flagg=1;
+		catalog.searchAndFilterProducts(string);
+		assertEquals(true,true);
 	}
+else flagg=0;
+   
+}
 
 	@Then("he can see all options")
 	public void he_can_see_all_options() {
