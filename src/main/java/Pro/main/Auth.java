@@ -6,8 +6,8 @@ public class Auth {
 	public Admin ad;	
 	public static  String email;
 	public static String password;
-	static String[] emails=new String[] {"admin@gmail.com", "customer1@gmail.com","customer2@gmail.com","installer@gmail.com","pass","pass","pass","pass"};
-	
+	public static String[] emails=new String[] {"admin@gmail.com", "customer1@gmail.com","customer2@gmail.com","installer@gmail.com","pass","pass","pass","pass"};
+	public static int flag=1;
 	public static boolean valid() {
 		
 if ((email.equals(emails[0])&&password.equals(emails[4]))||
@@ -35,19 +35,22 @@ if ((email.equals(emails[0])&&password.equals(emails[4]))||
 	public static boolean gohome(String email,String password) {
 		if (email.equals(emails[0])) {
 		System.out.println("\nWelcome Our ADMIN!"); 
+	     flag =1;
 		Admin.list();
 		return true;
 		}
 		else if (email.equals(emails[1])||email.equals(emails[2])) {
-			System.out.println("\nWelcome Our CUSTOMER!"); 
+			System.out.println("\nWelcome Our CUSTOMER!");
+			flag =1;
 			Customer.list();
 			return true;
 			}
 		else if (email.equals(emails[3])) {
 			System.out.println("\nWelcome Our INSTALLER!"); 
+			flag =1;
 			return true;
 		
-			}
+			}else flag=0;
 		return true;
 	}
 }

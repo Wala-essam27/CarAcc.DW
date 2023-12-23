@@ -4,8 +4,7 @@ Scenario: Sign In
 When he sign in
 
 Scenario: Successful Sign In
-
- And he enter the valid email and password 
+When he enter the valid email and password 
 Then he should go to the home page
 
 

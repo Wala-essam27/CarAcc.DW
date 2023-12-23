@@ -15,3 +15,15 @@ Feature: What customer can do?
  Then printing the orders
    
 
+Scenario: edit profile
+  When he want to edit profile 
+  Then editing done 
+  
+  
+Scenario: searching product
+  When he want to search a product
+  Then searching done 
+  
+  
+  
+  

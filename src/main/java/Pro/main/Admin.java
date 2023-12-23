@@ -3,8 +3,9 @@ package Pro.main;
 import java.util.Scanner;
 
 public class Admin {
+	public static int adchoice=0;
 	
-	
+	@SuppressWarnings("resource")
 	public static void list()
 { 
     ProductCatalog catalog = new ProductCatalog();
@@ -22,11 +23,14 @@ while (true) {
     System.out.println("8. Manage customer accounts.");
     System.out.println("9. Schedule and manage installation appointments.");
     System.out.println("0. Exit");
+    
 
     System.out.print("\n Enter your choice: ");
-    int choice = scanner.nextInt();
-
-    switch (choice) {
+   adchoice = scanner.nextInt();
+if (adchoice<0 ||adchoice >9)
+	{System.out.println("Invalid choice. Please enter a valid option.");
+return;}
+    switch (adchoice) {
         case 1:
              catalog.viewAllProducts();
             break;
@@ -74,9 +78,10 @@ while (true) {
         case 0:
             System.out.println("Exiting the admin menu. Goodbye!");
             scanner.close();
-            System.exit(0);
+            return;
         default:
-            System.out.println("Invalid choice. Please enter a valid option.");} }
+            System.out.println("Invalid choice. Please enter a valid option.");
+            return;} }
 	}
 
 	

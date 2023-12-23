@@ -22,4 +22,10 @@ Add and update product listings.
     Then printing cust accounts
     When update customer accounts
     Then printing cust accounts
+    
+    
+ Scenario: searching product
+  When he want to search a product
+  Then searching done 
+  
   
