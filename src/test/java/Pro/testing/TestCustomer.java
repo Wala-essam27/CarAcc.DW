@@ -3,6 +3,7 @@ package Pro.testing;
 import static org.junit.Assert.assertEquals;
 
 import Pro.main.Admin;
+import Pro.main.Auth;
 import Pro.main.Customer;
 import Pro.main.ProductCatalog;
 import Pro.main.orderManager;
@@ -17,6 +18,12 @@ public class TestCustomer {
 	@SuppressWarnings("static-access")
 	@When("he want to browsing")
 	public void he_want_to_browsing() {
+		 if (Auth.gohome(Auth.email, Auth.password) == 2)
+		{
+			Customer.list();
+			
+		assertEquals(true,true);
+		}
 		if (cust.custchoice==3) {
 			flagg=1;
 			catalog.viewAllProducts();

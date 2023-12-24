@@ -25,6 +25,7 @@ public class Customer {
 	            System.out.println("4. Search products.");
 	            System.out.println("5. Purchase products.");
 	            System.out.println("6. View order history and installation requests.");
+	            System.out.println("7. Delete an order.");
 	            System.out.println("0. Exit");
 
 	            System.out.print("\nEnter your choice: ");
@@ -60,6 +61,9 @@ public class Customer {
 	                case 6:
 	                	ord.viewOrder(); 
 	                    break;	
+	                case 7:
+	                	ord.deleteOrder();
+	                	break;
 	                case 0:
 	                    System.out.println("Exiting the customer menu. Goodbye!");
 	                    scanner.close();
@@ -136,6 +140,34 @@ public class Customer {
              String pass = scanner.nextLine();
              Auth.emails[1]=em;
              Auth.emails[5]=pass;    	
+	}
+	
+	
+	
+	public static void delete_account(){
+		view_account();
+		 System.out.print("\nPut the number of customer: ");
+		Scanner scanner = new Scanner(System.in);
+             String num = scanner.nextLine();
+            
+            if (num.equals("1")) {
+            	System.out.println("\n1. Customer2 \n");
+            	System.out.println("Email: ");
+            	System.out.println(Auth.emails[2]);
+            	System.out.println("Password: ");
+            	System.out.println(Auth.emails[6]);
+            	System.out.println("\n");
+            }
+            
+            else if (num.equals("2")) {
+            	System.out.println("\n1. Customer1 \n");
+            	System.out.println("Email: ");
+            	System.out.println(Auth.emails[1]);
+            	System.out.println("Password: ");
+            	System.out.println(Auth.emails[5]);
+            	System.out.println("\n");
+            }
+             	
 	}
 }
 	

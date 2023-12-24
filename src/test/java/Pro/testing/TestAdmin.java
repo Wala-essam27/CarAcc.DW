@@ -3,6 +3,7 @@ package Pro.testing;
 import static org.junit.Assert.assertEquals;
 
 import Pro.main.Admin;
+import Pro.main.Auth;
 import Pro.main.Customer;
 import Pro.main.ProductCatalog;
 import io.cucumber.java.en.Then;
@@ -13,8 +14,21 @@ public class TestAdmin {
 	Customer cust;
 	int flagg=1;	
 	ProductCatalog catalog = new ProductCatalog();
+@SuppressWarnings("static-access")
 @When("add new category")
 public void add_new_category() {
+	
+	 if (Auth.gohome(Auth.email, Auth.password) == 1)
+		{add.list();
+		 
+		if (add.input()<0 ||add.input() >9)
+			 {System.out.println("Invalid choice. Please enter a valid option.");
+			 assertEquals(false,false);}
+		
+			
+		else assertEquals(true,true);
+		
+		}
 	if (Admin.adchoice==5) {
 		flagg=1;
 catalog.addProductCategory();

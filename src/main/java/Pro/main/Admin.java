@@ -6,8 +6,14 @@ public class Admin {
 	public static int adchoice=0;
 	
 	@SuppressWarnings("resource")
-	public static void list()
-{ 
+	public static int input(){
+		Scanner scanner = new Scanner(System.in);
+		adchoice = scanner.nextInt();
+		 
+		 return adchoice; 
+		}
+		
+	public static void list(){ 
     ProductCatalog catalog = new ProductCatalog();
 	Scanner scanner = new Scanner(System.in);
 while (true) {
@@ -20,15 +26,15 @@ while (true) {
     System.out.println("6. Search for a product.");
     System.out.println("7. View customer accounts.");
     System.out.println("8. Manage customer accounts.");
-    System.out.println("9. Schedule and manage installation appointments.");
+    System.out.println("9. Delete a customer account.");
+    System.out.println("10. Schedule and manage installation appointments.");
     System.out.println("0. Exit");
 
     System.out.print("\n Enter your choice: ");
-   adchoice = scanner.nextInt();
-if (adchoice<0 ||adchoice >9)
-	{System.out.println("Invalid choice. Please enter a valid option.");
-return;}
-   switch (adchoice) {
+	adchoice = scanner.nextInt();
+	if (adchoice<0 ||adchoice >9)
+	 {System.out.println("Invalid choice. Please enter a valid option.");}
+		switch (adchoice) {
         case 1:
              catalog.viewAllProducts();
             break;
@@ -72,7 +78,11 @@ return;}
         	Customer.edit_account();
         	 break;
         case 9:
+        	Customer.delete_account();
              break;
+        case 10:
+        	
+        	break;
         case 0:
             System.out.println("Exiting the admin menu. Goodbye!");
             scanner.close();
@@ -80,8 +90,6 @@ return;}
         default:
             System.out.println("Invalid choice. Please enter a valid option.");
             return;} }
-	}
-
 	
-	}
-
+	}}
+	

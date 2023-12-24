@@ -12,25 +12,25 @@ public class ProductCatalog {
 
         String[][] InteriorCategory = new String[][] {
         	 {"Interior", null, null, null},
-             {"Seat Covers", "Custom-fit seat covers for comfort", "$29.99", "In Stock"},
-             {"Floor Mats", "Durable and easy to clean floor mats", "$19.99", "In Stock"},
-             {"Steering Wheel Cover", "Stylish cover for a comfortable grip", "$14.99", "In Stock"},
+             {"Seat Covers", "Custom-fit seat covers for comfort", "29.99", "In Stock"},
+             {"Floor Mats", "Durable and easy to clean floor mats", "19.99", "In Stock"},
+             {"Steering Wheel Cover", "Stylish cover for a comfortable grip", "14.99", "In Stock"},
              {null, null, null, null}
         };
 
         String[][] ExteriorCategory = new String[][] {
         	{"Exterior", null, null, null},
-            {"Car Wax", "Protects and enhances the car's exterior shine", "$9.99", "In Stock"},
-            {"Windshield Wipers", "High-quality wipers for clear visibility", "$7.99", "In Stock"},
-            {"License Plate Frame", "Customizable frame for a personal touch", "$5.99", "In Stock"},
+            {"Car Wax", "Protects and enhances the car's exterior shine", "9.99", "In Stock"},
+            {"Windshield Wipers", "High-quality wipers for clear visibility", "7.99", "In Stock"},
+            {"License Plate Frame", "Customizable frame for a personal touch", "5.99", "In Stock"},
             {null, null, null, null}
         };
         
         String[][] ElectronicsCategory = new String[][] {
         	 {"Electronics", null, null, null},
-             {"Car Charger", "Dual USB port charger for devices", "$12.99", "In Stock"},
-             {"Bluetooth Car Kit", "Hands-free calling and music streaming", "$24.99", "In Stock"},
-             {"GPS Navigation System", "Turn-by-turn directions for easy navigation", "$79.99", "In Stock"},
+             {"Car Charger", "Dual USB port charger for devices", "12.99", "In Stock"},
+             {"Bluetooth Car Kit", "Hands-free calling and music streaming", "24.99", "In Stock"},
+             {"GPS Navigation System", "Turn-by-turn directions for easy navigation", "79.99", "In Stock"},
              {null, null, null, null}
         };
 

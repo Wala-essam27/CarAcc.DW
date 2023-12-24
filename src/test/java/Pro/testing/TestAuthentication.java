@@ -26,32 +26,15 @@ public class TestAuthentication {
 
 @When("he enter the valid email and password")
 public void he_enter_the_valid_email_and_password() {
-	if (Auth.flag == 1)assertTrue(Auth.valid());
-	assertEquals(true,true);
-	
-}
+	if (Auth.flag == 1)
+		{assertTrue(Auth.valid());
+	assertEquals(true,true);}
+	else Auth.flag = 0;
+	}
 	@Then("he should go to the home page")
 	public void he_should_go_to_the_home_page() {
-		if (Auth.gohome(Auth.email, Auth.password) == 1)
-			{
-			Admin.list();
-			
+		if (Auth.flag == 1)
 			assertEquals(true,true);
-			}
-		else if (Auth.gohome(Auth.email, Auth.password) == 2)
-		{
-			Customer.list();
-			;
-		assertEquals(true,true);
-		}
-		
-		else if (Auth.gohome(Auth.email, Auth.password) == 3)
-		{
-			
-		assertEquals(true,true);
-		}
-		else assertEquals(false ,false);
-		flagg=0;
 	}
 	
 	@When("he enter the invalid email and password")
