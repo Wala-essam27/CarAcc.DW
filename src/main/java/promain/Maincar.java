@@ -1,6 +1,6 @@
-package Pro.main;
+package promain;
 
-public class mainpro {
+public class Maincar {
 
 	public static void main(String[] args) {
 		Auth a = new Auth();

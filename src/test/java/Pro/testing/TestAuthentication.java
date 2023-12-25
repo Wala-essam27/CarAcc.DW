@@ -5,11 +5,11 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Scanner;
 
-import Pro.main.Admin;
-import Pro.main.Auth;
-import Pro.main.Customer;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import promain.Admin;
+import promain.Auth;
+import promain.Customer;
 
 public class TestAuthentication {
 	static Scanner scanner = new Scanner(System.in);

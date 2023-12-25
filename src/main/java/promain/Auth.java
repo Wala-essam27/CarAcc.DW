@@ -1,4 +1,4 @@
-package Pro.main;
+package promain;
 
 import java.util.Scanner;
 

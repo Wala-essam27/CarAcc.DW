@@ -1,13 +1,13 @@
-package Pro.main;
+package promain;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class orderManager {
+public class OrderManager {
     private List<String[]> orders;
 
-    public orderManager() {
+    public OrderManager() {
         this.orders = new ArrayList<>();
     }
 

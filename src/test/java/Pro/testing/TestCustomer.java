@@ -2,18 +2,18 @@ package Pro.testing;
 
 import static org.junit.Assert.assertEquals;
 
-import Pro.main.Admin;
-import Pro.main.Auth;
-import Pro.main.Customer;
-import Pro.main.ProductCatalog;
-import Pro.main.orderManager;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import promain.Admin;
+import promain.Auth;
+import promain.Customer;
+import promain.ProductCatalog;
+import promain.OrderManager;
 
 public class TestCustomer {
 	int flagg=1;
 	Customer cust;
-	orderManager ordm;
+	OrderManager ordm;
 	ProductCatalog catalog = new ProductCatalog();
 	@SuppressWarnings("static-access")
 	@When("he want to browsing")

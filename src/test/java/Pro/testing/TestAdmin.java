@@ -2,12 +2,12 @@ package Pro.testing;
 
 import static org.junit.Assert.assertEquals;
 
-import Pro.main.Admin;
-import Pro.main.Auth;
-import Pro.main.Customer;
-import Pro.main.ProductCatalog;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import promain.Admin;
+import promain.Auth;
+import promain.Customer;
+import promain.ProductCatalog;
 
 public class TestAdmin {
 	Admin add;

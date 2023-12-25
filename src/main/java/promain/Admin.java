@@ -1,4 +1,4 @@
-package Pro.main;
+package promain;
 
 import java.util.Scanner;
 
@@ -6,12 +6,8 @@ public class Admin {
 	public static int adchoice=0;
 	
 	@SuppressWarnings("resource")
-	public static int input(){
-		Scanner scanner = new Scanner(System.in);
-		adchoice = scanner.nextInt();
-		 
-		 return adchoice; 
-		}
+
+
 		
 	public static void list(){ 
     ProductCatalog catalog = new ProductCatalog();

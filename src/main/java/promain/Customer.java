@@ -1,4 +1,4 @@
-package Pro.main;
+package promain;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Customer {
-	static orderManager ord = new orderManager();
+	static OrderManager ord = new OrderManager();
 	static int flag=0;
 	public static int custchoice=0;
 	public Customer() {
