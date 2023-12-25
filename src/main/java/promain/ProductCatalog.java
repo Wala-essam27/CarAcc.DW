@@ -66,6 +66,7 @@ LOGGER.info("\nEnter Category details:");
            productCategories.add(newCategory);
         
            
+           
            LOGGER.info("New product category '" + categoryName + "' added.");
         return 1;
         
