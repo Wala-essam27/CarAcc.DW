@@ -8,12 +8,12 @@ import promain.Admin;
 import promain.Auth;
 import promain.Customer;
 import promain.ProductCatalog;
-import promain.OrderManager;
+import promain.orderManager;
 
 public class TestCustomer {
 	int flagg=1;
 	Customer cust;
-	OrderManager ordm;
+	orderManager ordm;
 	ProductCatalog catalog = new ProductCatalog();
 	@SuppressWarnings("static-access")
 	@When("he want to browsing")

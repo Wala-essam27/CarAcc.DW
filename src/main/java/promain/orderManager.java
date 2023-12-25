@@ -5,11 +5,12 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
-public class OrderManager {
+public class orderManager {
     private List<String[]> orders;
-    private static final Logger LOGGER = Logger.getLogger(OrderManager.class.getName());
-    public OrderManager() {
+    private static final Logger LOGGER = Logger.getLogger(orderManager.class.getName());
+    public orderManager() {
         this.orders = new ArrayList<>();
+        
     }
 
     public void purchaseProduct(ProductCatalog catalog) {

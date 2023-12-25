@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Customer {
-	static OrderManager ord = new OrderManager();
+	static orderManager ord = new orderManager();
 	static int flag=0;
 	public static int custchoice=0;
 	private static final Logger LOGGER = Logger.getLogger(Customer.class.getName());
