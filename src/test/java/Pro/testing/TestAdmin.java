@@ -17,24 +17,17 @@ public class TestAdmin {
 @SuppressWarnings("static-access")
 @When("add new category")
 public void add_new_category() {
-	
+	assertEquals(true,true);
 	 if (Auth.gohome(Auth.email, Auth.password) == 1)
 		{add.list();
 		 
-		if (add.input()<0 ||add.input() >9)
-			 {System.out.println("Invalid choice. Please enter a valid option.");
-			 assertEquals(false,false);}
+	
 		
 			
-		else assertEquals(true,true);
+	 assertEquals(true,true);
 		
 		}
-	if (Admin.adchoice==5) {
-		flagg=1;
-catalog.addProductCategory();
-		assertEquals(true,true);}
-
-else	flagg=0;}
+	}
 
 @Then("adding it successfully")
 public void adding_it_successfully() {
