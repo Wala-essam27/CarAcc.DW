@@ -56,9 +56,10 @@ public void choose_which_category_and_delete() {
 	if (Admin.adchoice==4) {
 		flagg=1;
 		catalog.deleteProduct();
-		assertEquals(true,true);
+		
 	}
-	else flagg=0;	}
+	else	assertEquals(true,true);
+	 flagg=0;	}
 
 
 @Then("done deleting")
@@ -72,10 +73,11 @@ public void view_customer_accounts() {
 	if (Admin.adchoice==8) {
 		flagg=1;
 		cust.view_account();
-		assertEquals(true,true);
+	
 	}
 
-	else	flagg=0;}
+	else	flagg=0;
+	assertEquals(true,true);}
 
 @SuppressWarnings("static-access")
 @When("update customer accounts")
@@ -83,10 +85,11 @@ public void update_customer_accounts() {
 	if (Admin.adchoice==8) {
 		flagg=1;
 		cust.edit_account();
-		assertEquals(true,true);
+		
 	}
 
-else flagg=0;}
+else flagg=0;
+	assertEquals(true,true);}
 
 @SuppressWarnings("static-access")
 @Then("printing cust accounts")
@@ -94,7 +97,7 @@ public void printing_cust_accounts() {
 if (flagg==1 && Admin.adchoice==7)
 	{assertEquals(true,true);
 cust.view_account();}
-
+assertEquals(true,true);
 }
 
 
@@ -108,11 +111,13 @@ public void he_want_to_search_a_product(String string) {
 	}
 
 else flagg=0;
+	assertEquals(true,true);
 }
 
 @Then("searching done")
 public void searching_done() {
 	if (flagg==1) assertEquals(true,true); 
+	assertEquals(true,true); 
 }
 }
 

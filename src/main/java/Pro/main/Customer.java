@@ -29,12 +29,9 @@ public class Customer {
 	            System.out.println("0. Exit");
 
 	            System.out.print("\nEnter your choice: ");
-	             try {
+	           
 					custchoice = scanner.nextInt();
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				
 	            if (custchoice<0 ||custchoice >9)
 	        	{System.out.println("Invalid choice. Please enter a valid option.");
 	        return;}

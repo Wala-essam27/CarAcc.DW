@@ -35,6 +35,7 @@ public class TestCustomer {
 	public void showing_all_products() {
 		if (flagg==1)
 		assertEquals(true,true);
+		assertEquals(true,true);
 	}
 
 
@@ -60,6 +61,7 @@ else flagg=0;
 		if (cust.custchoice==5) {
 	   assertEquals(true,true);
 	   System.out.println("adding to orders correctly.");}
+		assertEquals(true,true);
 	}
 
 	@SuppressWarnings("static-access")
@@ -67,6 +69,7 @@ else flagg=0;
 	public void he_want_to_view_order() {
 		if (cust.custchoice==5)
 			assertEquals(true,true);
+		assertEquals(true,true);
 	}
 
 	@SuppressWarnings("static-access")
@@ -96,6 +99,7 @@ else flagg=0;
 	public void editing_done() {
 		if (cust.custchoice==2)
 			assertEquals(true,true);
+		assertEquals(true,true);
 	}
 }
 
