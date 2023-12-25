@@ -1,51 +1,61 @@
 package promain;
+import java.util.logging.Logger;
 
 import java.util.Scanner;
 
+
+
+
 public class Admin {
 	public static int adchoice=0;
-	
-	@SuppressWarnings("resource")
-
-
+	private static final Logger LOGGER = Logger.getLogger(Admin.class.getName());
+	Admin(){
 		
+	}
+	
 	public static void list(){ 
     ProductCatalog catalog = new ProductCatalog();
 	Scanner scanner = new Scanner(System.in);
 while (true) {
-    System.out.println("\n Admin Menu:");
-    System.out.println("1. Show product categories.");
-    System.out.println("2. Add product listings.");
-    System.out.println("3. update product listings.");
-    System.out.println("4. Delete product listings.");
-    System.out.println("5. Add a new catagory.");
-    System.out.println("6. Search for a product.");
-    System.out.println("7. View customer accounts.");
-    System.out.println("8. Manage customer accounts.");
-    System.out.println("9. Delete a customer account.");
-    System.out.println("10. Schedule and manage installation appointments.");
-    System.out.println("0. Exit");
+	LOGGER.info(
+		    "\n ========= Admin Menu: ===========\n" +
+		    "sdfghj\n" +
+		    "1. Show product categories.\n" +
+		    "2. Add product listings.\n" +
+		    "3. Update product listings.\n" +
+		    "4. Delete product listings.\n" +
+		    "5. Add a new category.\n" +
+		    "6. Search for a product.\n" +
+		    "7. View customer accounts.\n" +
+		    "8. Manage customer accounts.\n" +
+		    "9. Delete a customer account.\n" +
+		    "10. Schedule and manage installation appointments.\n" +
+		    "0. Exit."+
+		    "\n\nEnter your choice: "
+		);
 
-    System.out.print("\n Enter your choice: ");
+		
+		
+		    
 	adchoice = scanner.nextInt();
 	if (adchoice<0 ||adchoice >9)
-	 {System.out.println("Invalid choice. Please enter a valid option.");}
+	 {LOGGER.warning("\nInvalid choice. Please enter a valid option.");}
 		switch (adchoice) {
         case 1:
              catalog.viewAllProducts();
             break;
         case 2:
-        	  System.out.println("Enter product details:\n");
+        	LOGGER.info("\nEnter product details:\n");
         	  String s=scanner.nextLine();
-              System.out.print("Catagory Name: ");
+        	  LOGGER.info("Catagory Name: ");
               String categoryName = scanner.nextLine();
-              System.out.print("Product Name: ");
+              LOGGER.info("Product Name: ");
               String name = scanner.nextLine();
-              System.out.print("Description: ");
+              LOGGER.info("Description: ");
               String description = scanner.nextLine();
-              System.out.print("Price: ");
+              LOGGER.info("Price: ");
               String price = scanner.nextLine();
-              System.out.print("Availability: ");
+              LOGGER.info("Availability: ");
               String availability = scanner.nextLine();
 
               catalog.addProduct(categoryName, name, description, price, availability);
@@ -62,7 +72,7 @@ while (true) {
         	catalog.addProductCategory();
             break;
         case 6:
-        	 System.out.println("Enter keyword to search:");
+        	LOGGER.info("\nEnter keyword to search:");
              scanner.nextLine(); 
              String searchKeyword = scanner.nextLine();
              catalog.searchAndFilterProducts(searchKeyword);
@@ -80,12 +90,12 @@ while (true) {
         	
         	break;
         case 0:
-            System.out.println("Exiting the admin menu. Goodbye!");
+        	LOGGER.info("\nExiting the admin menu. Goodbye!");
             scanner.close();
             return;
         default:
-            System.out.println("Invalid choice. Please enter a valid option.");
-            return;} }
+        	LOGGER.warning("\nInvalid choice. Please enter a valid option.");
+            } 
 	
-	}}
+	}}}
 	

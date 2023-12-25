@@ -20,10 +20,7 @@ public void add_new_category() {
 	assertEquals(true,true);
 	 if (Auth.gohome(Auth.email, Auth.password) == 1)
 		{add.list();
-		 
-	
-		
-			
+		 			
 	 assertEquals(true,true);
 		
 		}
@@ -64,7 +61,7 @@ public void choose_which_category_and_delete() {
 
 @Then("done deleting")
 public void done_deleting() {
-if (flagg==1) assertEquals(true,true);
+if (flagg==1) assertEquals(true,catalog.deleteProduct());
 }
 
 @SuppressWarnings("static-access")

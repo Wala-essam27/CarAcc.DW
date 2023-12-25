@@ -3,10 +3,11 @@ package promain;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class ProductCatalog {
     public static List<String[][]> productCategories;
-
+    private static final Logger LOGGER = Logger.getLogger(Customer.class.getName());
     public ProductCatalog() {
     	 ProductCatalog.productCategories = new ArrayList<>();
 
@@ -43,18 +44,18 @@ public class ProductCatalog {
     public int addProductCategory() {
         @SuppressWarnings("resource")
 		Scanner scanne = new Scanner(System.in);
-        System.out.println("Enter Category details:");
+LOGGER.info("\nEnter Category details:");
         scanne.nextLine(); 
-        System.out.print("Category Name: ");
+        LOGGER.info("\nCategory Name: ");
         String categoryName = scanne.nextLine();
-        System.out.println("\nEnter product details:");
-        System.out.print("Product Name: ");
+        LOGGER.info("\nEnter product details:"+
+        "\nProduct Name: ");
         String name = scanne.nextLine();
-        System.out.print("Description: ");
+        LOGGER.info("Description: ");
         String description = scanne.nextLine();
-        System.out.print("Price: ");
+        LOGGER.info("Price: ");
         String price = scanne.nextLine();
-        System.out.print("Availability: ");
+        LOGGER.info("Availability: ");
         String availability = scanne.nextLine();
         String[][] newCategory = new String[][] {
           	 {categoryName, null, null, null},
@@ -64,7 +65,7 @@ public class ProductCatalog {
                {null, null, null, null}};
            productCategories.add(newCategory);
         
-        System.out.println("New product category '" + categoryName + "' added.");
+           LOGGER.info("New product category '" + categoryName + "' added.");
         return 1;
         
     }
@@ -75,34 +76,36 @@ public class ProductCatalog {
                 for (int i = 0; i < category.length; i++) {
                     if (category[i][0] == null) {
                         category[i] = new String[]{name, description, price, availability};
-                        System.out.println("Product added to category '" + categoryName + "'.");
+                        LOGGER.info("Product added to category '" + categoryName + "'.");
                         return;
                     }
                 }
-                System.out.println("Category '" + categoryName + "' is full. Cannot add more products.");
+                LOGGER.warning("\nCategory '" + categoryName + "' is full. Cannot add more products.");
                 return;
             }
         }
-        System.out.println("Category '" + categoryName + "' not found.");
+        LOGGER.warning("\nCategory '" + categoryName + "' not found.");
     }
     public boolean viewAllProducts() {
         if (productCategories.isEmpty()) {
-            System.out.println("No products in the catalog.");
+        	LOGGER.warning("\nNo products in the catalog.");
             return true;
         }
 
-        System.out.println("\n All Products in the Catalog:\n");
+        LOGGER.info("\n All Products in the Catalog:\n");
 
         for (String[][] category : productCategories) {
             for (String[] product : category) {
 
                 if (product[0] != null && product[1] != null && product[2] != null && product[3] != null) {
-                    System.out.println("Category: " + category[0][0]);
-                    System.out.println("Product: " + product[0]);
-                    System.out.println("Description: " + product[1]);
-                    System.out.println("Price: " + product[2]);
-                    System.out.println("Availability: " + product[3]);
-                    System.out.println("------------------------");
+                	LOGGER.info(
+                            "Category: " + category[0][0] + "\n" +
+                                    "Product: " + product[0] + "\n" +
+                                    "Description: " + product[1] + "\n" +
+                                    "Price: " + product[2] + "\n" +
+                                    "Availability: " + product[3] + "\n" +
+                                    "------------------------"
+                    );
                 }
             }
         }
@@ -127,22 +130,25 @@ public class ProductCatalog {
         }
 
         if (foundProducts.isEmpty()) {
-            System.out.println("No products found matching the keyword: " + keyword);
+        	LOGGER.warning("No products found matching the keyword: " + keyword);
         } else {
-            System.out.println("\nFound Products Matching '" + keyword + "':");
+        	LOGGER.info("\nFound Products Matching '" + keyword + "':");
             for (String[] product : foundProducts) {
-                //System.out.println("Category: " + product[0]);
-                System.out.println("\nProduct: " + product[0]);
-                System.out.println("Description: " + product[1]);
-                System.out.println("Price: " + product[2]);
-                System.out.println("Availability: " + product[3]);
-                System.out.println("------------------------");
+
+            	LOGGER.info(
+                                "\nProduct: " + product[0] + "\n" +
+                                "Description: " + product[1] + "\n" +
+                                "Price: " + product[2] + "\n" +
+                                "Availability: " + product[3] + "\n" +
+                                "------------------------"                );
             }
+            }
+            
         }
-    }
+    
     public boolean deleteProduct() {
     	Scanner scanner = new Scanner(System.in);
-    	System.out.println("Enter product Name:");
+    	LOGGER.info("\nEnter product Name:");
         String productName = scanner.nextLine();
         for (String[][] category : productCategories) {
             for (String[] product : category) {
@@ -152,28 +158,29 @@ public class ProductCatalog {
                     product[1] = null;
                     product[2] = null;
                     product[3] = null;
-                    System.out.println("Product '" + productName + "' deleted.");
+                    LOGGER.info("Product '" + productName + "' deleted.");
                     return true;
                 }
             }
         }
 
-        System.out.println("Product '" + productName + "' not found.");
+        LOGGER.warning("Product '" + productName + "' not found.");
         return false;
     }
 
     public boolean editProduct() {
     	Scanner scnner = new Scanner(System.in);
-    	System.out.println("Enter product details:");
-        System.out.print("Product Name: ");
+    	LOGGER.info("\nEnter product details:"+
+    	    			
+    	            "\nProduct Name: ");
         String productName = scnner.nextLine();
-        System.out.print("NEW Product Name: ");
+        LOGGER.info("\nNEW Product Name: ");
         String newName = scnner.nextLine();
-        System.out.print("NEW Description: ");
+        LOGGER.info("\nNEW Description: ");
         String newDescription = scnner.nextLine();
-        System.out.print("NEW Price: ");
+        LOGGER.info("\nNEW Price: ");
         String newPrice = scnner.nextLine();
-        System.out.print("NEW Availability: ");
+        LOGGER.info("\nNEW Availability: ");
         String newAvailability = scnner.nextLine();
     	
     	    	
@@ -184,13 +191,13 @@ public class ProductCatalog {
                     product[1] = newDescription;
                     product[2] = newPrice;
                     product[3] = newAvailability;
-                    System.out.println("Product '" + productName + "' updated.");
+                    LOGGER.info("\nProduct '" + productName + "' updated.");
                     return true;
                 }
             }
         }
 
-        System.out.println("Product '" + productName + "' not found.");
+        LOGGER.info("\nProduct '" + productName + "' not found.");
         return false;
     }
 
