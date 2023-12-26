@@ -15,10 +15,9 @@ public class Customer {
 	static int flag=0;
 	public static int custchoice=0;
 	private static final Logger LOGGER = Logger.getLogger(Customer.class.getName());
-	public Customer() {
-		custchoice=0;
-	    }
-	@SuppressWarnings("resource")
+	private Customer() {
+	    throw new IllegalStateException("Utility class");
+	  }
 	public static boolean list(){
 		
 		ProductCatalog catalog = new ProductCatalog();		
@@ -79,10 +78,15 @@ public class Customer {
 	}
 	public static boolean view_myaccount()
 	{
-		  LOGGER.info(
-	                "\ncustomer1  \n" +
-	                EMAIL + Auth.emails[1] + "\n" +
-	                PASSWORD + Auth.emails[5] + "\n");
+		LOGGER.info(
+			    String.format(
+			        "%ncustomer1%n" +
+			        "%s: %s%n" +
+			        "%s: %s%n",
+			        EMAIL, Auth.emails[1], PASSWORD, Auth.emails[5]
+			    )
+			);
+
 		return true;
     	
 	}
@@ -90,12 +94,17 @@ public class Customer {
 	
 	public static boolean view_account()
 	{
-		LOGGER.info("\n1. Customer1 \n" +
-	                EMAIL + Auth.emails[1] + "\n" +
-	                PASSWORD + Auth.emails[5] + "\n" +
-	                "\n2. Customer2 \n" +
-	                EMAIL + Auth.emails[2] + "\n" +
-	                PASSWORD + Auth.emails[6] + "\n");
+		LOGGER.info(
+			    String.format(
+			        "%n1. Customer1%n" +
+			        "Email: %s%n" +
+			        "Password: %s%n" +
+			        "%n2. Customer2%n" +
+			        "Email: %s%n" +
+			        "Password: %s%n",
+			        Auth.emails[1], Auth.emails[5], Auth.emails[2], Auth.emails[6]
+			    )
+			);
 		return true;
     	
 	}
@@ -149,20 +158,27 @@ public class Customer {
              String num = scanner.nextLine();
             
             if (num.equals("1")) {
-            	 LOGGER.info(
-                         "\n1. Customer2 \n" +
-                                 EMAIL + Auth.emails[2] + "\n" +
-                                 PASSWORD + Auth.emails[6] + "\n"
-                 );
+            	LOGGER.info(
+            		    String.format(
+            		        "%n1. Customer2%n" +
+            		        "%s: %s%n" +
+            		        "%s: %s%n",
+            		        EMAIL, Auth.emails[2], PASSWORD, Auth.emails[6]
+            		    )
+            		);
+
             }
             
             else if (num.equals("2")) {
-            	 LOGGER.info(
-                         "\n1. Customer1 \n" +
-                                 EMAIL + Auth.emails[1] + "\n" +
-                                 PASSWORD + Auth.emails[5] + "\n" 
-                                
-                 );
+            	LOGGER.info(
+            		    String.format(
+            		        "%n1. Customer1%n" +
+            		        "%s: %s%n" +
+            		        "%s: %s%n",
+            		        EMAIL, Auth.emails[1], PASSWORD, Auth.emails[5]
+            		    )
+            		);
+
             }
             return true;       	
 	}

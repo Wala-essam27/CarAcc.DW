@@ -10,6 +10,9 @@ public class Auth {
 	public static String[] emails=new String[] {"admin@gmail.com", "customer1@gmail.com","customer2@gmail.com","installer@gmail.com","pass","pass","pass","pass"};
 	public static int flag=0;
 	private static final Logger LOGGER = Logger.getLogger(Auth.class.getName());
+	Auth() {
+	    throw new IllegalStateException("Utility class");
+	  }
 	public static boolean valid() {
 		
 if ((email.equals(emails[0])&&password.equals(emails[4]))||
@@ -47,7 +50,7 @@ if ((email.equals(emails[0])&&password.equals(emails[4]))||
 			
 			return flag;
 			}
-		else if (email.equals(emails[3])) {
+		else if (email.equals(emails[3])&&password.equals("pass")) {
 			LOGGER.info("\nWelcome Our INSTALLER!"); 
 			flag =3;
 			

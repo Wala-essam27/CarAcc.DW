@@ -9,9 +9,9 @@ import java.util.Scanner;
 public class Admin {
 	public static int adchoice=0;
 	private static final Logger LOGGER = Logger.getLogger(Admin.class.getName());
-	Admin(){
-		adchoice=0;
-	}
+	 private Admin() {
+		    throw new IllegalStateException("Utility class");
+		  }
 	
 	public static boolean list(){ 
     ProductCatalog catalog = new ProductCatalog();
@@ -45,7 +45,7 @@ while (true) {
             break;
         case 2:
         	LOGGER.info("\nEnter product details:\n");
-        	  String s=scanner.nextLine();
+        	  scanner.nextLine();
         	  LOGGER.info("Catagory Name: ");
               String categoryName = scanner.nextLine();
               LOGGER.info("Product Name: ");
