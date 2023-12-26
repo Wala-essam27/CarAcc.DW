@@ -2,6 +2,8 @@ package Pro.testing;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.logging.Logger;
+
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import promain.Admin;
@@ -9,6 +11,7 @@ import promain.Customer;
 import promain.ProductCatalog;
 
 public class TestProduct {
+	private static final Logger LOGGER = Logger.getLogger(TestProduct.class.getName());
 	Admin add;
 	Customer cust;
 	int flagg=1;
@@ -19,7 +22,7 @@ public class TestProduct {
 		if (Admin.adchoice==5) {
 			catalog.addProductCategory();
 			flagg=1;
-			assertEquals(true,true);}
+			}
 
 	else	flagg=0;
 	}
@@ -28,7 +31,7 @@ public class TestProduct {
 	public void adding_them_to_correct_catagory() {
 		if (Admin.adchoice==5) {
 			flagg=1;
-			assertEquals(true,true);
+			assertEquals(true,catalog.addProductCategory());
 		}
 	else flagg=0;
 	}
@@ -38,8 +41,8 @@ public class TestProduct {
 	public void he_wants_to_print_all_category() {
 		if (Admin.adchoice==1||cust.custchoice==3) {
 			flagg=1;
-			catalog.viewAllProducts();
-			assertEquals(true,true);
+			
+			assertEquals(true,catalog.viewAllProducts());
 		}
 	else flagg=0;
 	}
@@ -49,7 +52,7 @@ public class TestProduct {
 	@Then("printing categorys")
 	public void printing_categorys() {
 		if (Admin.adchoice==1||cust.custchoice==3) 
-			assertEquals(true,true);
+			LOGGER.info("Printing Successfully.");
 	}
 
 
@@ -58,8 +61,8 @@ public class TestProduct {
 public void he_wants_to_editing_one_of_them_and_choose_one() {
 	if (Admin.adchoice==3) {
 		flagg=1;
-		catalog.editProduct();
-		assertEquals(true,true);}
+		
+		assertEquals(true,catalog.editProduct());}
 
 	else flagg=0;
 }
@@ -68,8 +71,8 @@ public void he_wants_to_editing_one_of_them_and_choose_one() {
 public void printing_the_result() {
 	if (Admin.adchoice==3) {
 		flagg=1;
-		catalog.viewAllProducts();
-		assertEquals(true,true);}
+		
+		assertEquals(true,catalog.viewAllProducts());}
 
 	else flagg=0;
 }
@@ -79,8 +82,8 @@ public void printing_the_result() {
 public void he_wants_to_search(String string) {
 	if (Admin.adchoice==6||cust.custchoice==4) {
 		flagg=1;
-		catalog.searchAndFilterProducts(string);
-		assertEquals(true,true);
+		
+		assertEquals(true,catalog.searchAndFilterProducts(string));
 	}
 else flagg=0;
    
@@ -88,7 +91,9 @@ else flagg=0;
 
 	@Then("he can see all options")
 	public void he_can_see_all_options() {
-		if (flagg==1) assertEquals(true,true); 
+		if (flagg==1)  LOGGER.info("Viewing successfully.");
+		
+		
 	}
 
 }

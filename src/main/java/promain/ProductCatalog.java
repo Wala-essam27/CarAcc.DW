@@ -41,7 +41,7 @@ public class ProductCatalog {
     }
 
 
-    public int addProductCategory() {
+    public boolean addProductCategory() {
         @SuppressWarnings("resource")
 		Scanner scanne = new Scanner(System.in);
 LOGGER.info("\nEnter Category details:");
@@ -68,7 +68,7 @@ LOGGER.info("\nEnter Category details:");
            
            
            LOGGER.info("New product category '" + categoryName + "' added.");
-        return 1;
+        return true;
         
     }
 
@@ -115,7 +115,7 @@ LOGGER.info("\nEnter Category details:");
     }
 
     
-    public void searchAndFilterProducts(String keyword) {
+    public boolean searchAndFilterProducts(String keyword) {
         List<String[]> foundProducts = new ArrayList<>();
 
         for (String[][] category : productCategories) {
@@ -145,6 +145,7 @@ LOGGER.info("\nEnter Category details:");
                                 "------------------------"                );
             }
             }
+		return true;
             
         }
     

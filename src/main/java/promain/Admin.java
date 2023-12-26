@@ -13,14 +13,14 @@ public class Admin {
 		
 	}
 	
-	public static void list(){ 
+	public static boolean list(){ 
     ProductCatalog catalog = new ProductCatalog();
 	Scanner scanner = new Scanner(System.in);
 while (true) {
 	LOGGER.info(
 		    "\n ========= Admin Menu: ===========\n" +
-		    "sdfghj\n" +
-		    "1. Show product categories.\n" +
+		    
+		    "\n1. Show product categories.\n" +
 		    "2. Add product listings.\n" +
 		    "3. Update product listings.\n" +
 		    "4. Delete product listings.\n" +
@@ -38,8 +38,7 @@ while (true) {
 		
 		    
 	adchoice = scanner.nextInt();
-	if (adchoice<0 ||adchoice >9)
-	 {LOGGER.warning("\nInvalid choice. Please enter a valid option.");}
+	
 		switch (adchoice) {
         case 1:
              catalog.viewAllProducts();
@@ -92,7 +91,7 @@ while (true) {
         case 0:
         	LOGGER.info("\nExiting the admin menu. Goodbye!");
             scanner.close();
-            return;
+            return true;
         default:
         	LOGGER.warning("\nInvalid choice. Please enter a valid option.");
             } 

@@ -53,7 +53,7 @@ if ((email.equals(emails[0])&&password.equals(emails[4]))||
 			
 			return flag;
 			}
-		return flag;
+		return 0;
 	}
 }
 

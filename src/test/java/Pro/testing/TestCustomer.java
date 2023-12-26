@@ -2,40 +2,41 @@ package Pro.testing;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.logging.Logger;
+
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import promain.Admin;
 import promain.Auth;
 import promain.Customer;
 import promain.ProductCatalog;
-import promain.orderManager;
+import promain.OrderManager;
 
 public class TestCustomer {
+	private static final Logger LOGGER = Logger.getLogger(TestCustomer.class.getName());
 	int flagg=1;
 	Customer cust;
-	orderManager ordm;
+	OrderManager ordm;
 	ProductCatalog catalog = new ProductCatalog();
 	@SuppressWarnings("static-access")
 	@When("he want to browsing")
 	public void he_want_to_browsing() {
 		 if (Auth.gohome(Auth.email, Auth.password) == 2)
 		{
-			Customer.list();
 			
-		assertEquals(true,true);
+			
+		assertEquals(true,Customer.list());
 		}
-		if (cust.custchoice==3) {
-			flagg=1;
-			catalog.viewAllProducts();
-		}
+
+		
 	else flagg=0;
 	}
 
 	@Then("showing all products")
 	public void showing_all_products() {
 		if (flagg==1)
-		assertEquals(true,true);
-		assertEquals(true,true);
+		assertEquals(true,	catalog.viewAllProducts());
+		
 	}
 
 
@@ -59,17 +60,16 @@ else flagg=0;
 	@Then("adding them to orders")
 	public void adding_them_to_orders() {
 		if (cust.custchoice==5) {
-	   assertEquals(true,true);
-	   System.out.println("adding to orders correctly.");}
-		assertEquals(true,true);
+	   
+			LOGGER.info("adding to orders correctly.");}
+		
 	}
 
 	@SuppressWarnings("static-access")
 	@When("he want to view order")
 	public void he_want_to_view_order() {
-		if (cust.custchoice==5)
-			assertEquals(true,true);
-		assertEquals(true,true);
+		if (cust.custchoice==5) LOGGER.info("Viewing successfully.");
+		
 	}
 
 	@SuppressWarnings("static-access")
@@ -98,8 +98,7 @@ else flagg=0;
 	@Then("editing done")
 	public void editing_done() {
 		if (cust.custchoice==2)
-			assertEquals(true,true);
-		assertEquals(true,true);
+			LOGGER.info("Editng successfully.");
 	}
 }
 

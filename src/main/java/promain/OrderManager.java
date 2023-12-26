@@ -5,10 +5,10 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
-public class orderManager {
+public class OrderManager {
     private List<String[]> orders;
-    private static final Logger LOGGER = Logger.getLogger(orderManager.class.getName());
-    public orderManager() {
+    private static final Logger LOGGER = Logger.getLogger(OrderManager.class.getName());
+    public OrderManager() {
         this.orders = new ArrayList<>();
         
     }

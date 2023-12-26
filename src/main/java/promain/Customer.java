@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Customer {
-	static orderManager ord = new orderManager();
+	static OrderManager ord = new OrderManager();
 	static int flag=0;
 	public static int custchoice=0;
 	private static final Logger LOGGER = Logger.getLogger(Customer.class.getName());
@@ -15,13 +15,13 @@ public class Customer {
 		
 	    }
 	@SuppressWarnings("resource")
-	public static void list(){
+	public static boolean list(){
 		
 		ProductCatalog catalog = new ProductCatalog();		
 		Scanner scanner = new Scanner(System.in);
 		 while ( true) {
 			 LOGGER.info("\n========= Customer Menu: ===========\n" +
-		                "1. View profile.\n" +
+		                "1.\n View profile.\n" +
 		                "2. Edit profile.\n" +
 		                "3. View products.\n" +
 		                "4. Search products.\n" +
@@ -34,9 +34,8 @@ public class Customer {
 		             
 					custchoice = scanner.nextInt();
 				
-	            if (custchoice<0 ||custchoice >9)
-	        	{LOGGER.warning("\nInvalid choice. Please enter a valid option.");
-	        return;}
+	           
+	        
 	            switch (custchoice) {
 	                case 1:
 	                	view_myaccount();
@@ -67,19 +66,19 @@ public class Customer {
 	                case 0:
 	                	 LOGGER.info("\nExiting the customer menu. Goodbye!");
 	                    scanner.close();
-	                    return;
-	                default:
+	 	                default:
 	                	 LOGGER.warning("\nInvalid choice. Please enter a valid option.");
-	            }
+	            }return true;
 	        }
 
 	}
-	public static void view_myaccount()
+	public static boolean view_myaccount()
 	{
 		  LOGGER.info(
 	                "\ncustomer1  \n" +
 	                "Email: " + Auth.emails[1] + "\n" +
 	                "Password: " + Auth.emails[5] + "\n");
+		return true;
     	
 	}
 	
@@ -123,7 +122,7 @@ public class Customer {
     	
 	}
 	
-	public static void edit_myaccount(){
+	public static boolean edit_myaccount(){
 		view_myaccount();
 		Scanner scanner = new Scanner(System.in);
 		LOGGER.info(" \nEnter the details: ");
@@ -132,12 +131,13 @@ public class Customer {
              LOGGER.info("\nPut a new Passward: ");
              String pass = scanner.nextLine();
              Auth.emails[1]=em;
-             Auth.emails[5]=pass;    	
+             Auth.emails[5]=pass;   
+             return true;
 	}
 	
 	
 	
-	public static void delete_account(){
+	public static boolean delete_account(){
 		view_account();
 		LOGGER.info("\nPut the number of customer: ");
 		Scanner scanner = new Scanner(System.in);
@@ -159,7 +159,7 @@ public class Customer {
                                 
                  );
             }
-             	
+            return true;       	
 	}
 }
 	

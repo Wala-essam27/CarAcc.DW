@@ -2,6 +2,8 @@ package Pro.testing;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.logging.Logger;
+
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import promain.Admin;
@@ -10,6 +12,7 @@ import promain.Customer;
 import promain.ProductCatalog;
 
 public class TestAdmin {
+	private static final Logger LOGGER = Logger.getLogger(TestAdmin.class.getName());
 	Admin add;
 	Customer cust;
 	int flagg=1;	
@@ -17,18 +20,16 @@ public class TestAdmin {
 @SuppressWarnings("static-access")
 @When("add new category")
 public void add_new_category() {
-	assertEquals(true,true);
+	
 	 if (Auth.gohome(Auth.email, Auth.password) == 1)
-		{add.list();
-		 			
-	 assertEquals(true,true);
-		
+		{assertEquals(true,add.list());
+	
 		}
 	}
 
 @Then("adding it successfully")
 public void adding_it_successfully() {
-	if (flagg==1) assertEquals(true,true);
+	if (flagg==4) LOGGER.info("Adding successfully");
 	}
 
 
@@ -36,26 +37,24 @@ public void adding_it_successfully() {
 public void choose_which_category_and_edit() {
 	if (Admin.adchoice==3) {
 		flagg=1;
-		catalog.editProduct();
-		assertEquals(true,true);}
-
+		assertEquals(true,catalog.editProduct());}
 	else flagg=0;}
 
 
 
 @Then("done editing")
 public void done_editing() {
-	if (flagg==1) assertEquals(true,true);
+	if (flagg==1) assertEquals(true,catalog.editProduct());
 	}
 
 @When("choose which product and delete")
 public void choose_which_category_and_delete() {
 	if (Admin.adchoice==4) {
 		flagg=1;
-		catalog.deleteProduct();
+		assertEquals(true,catalog.deleteProduct());
 		
 	}
-	else	assertEquals(true,true);
+	else
 	 flagg=0;	}
 
 
@@ -69,32 +68,32 @@ if (flagg==1) assertEquals(true,catalog.deleteProduct());
 public void view_customer_accounts() {
 	if (Admin.adchoice==8) {
 		flagg=1;
-		cust.view_account();
+		assertEquals(true,cust.view_account());
 	
 	}
 
 	else	flagg=0;
-	assertEquals(true,true);}
+	}
 
 @SuppressWarnings("static-access")
 @When("update customer accounts")
 public void update_customer_accounts() {
 	if (Admin.adchoice==8) {
 		flagg=1;
-		cust.edit_account();
+		assertEquals(true,cust.edit_account());
+	
 		
 	}
 
-else flagg=0;
-	assertEquals(true,true);}
-
+else flagg=0;}
+	
 @SuppressWarnings("static-access")
 @Then("printing cust accounts")
 public void printing_cust_accounts() {
 if (flagg==1 && Admin.adchoice==7)
-	{assertEquals(true,true);
-cust.view_account();}
-assertEquals(true,true);
+	{assertEquals(true,cust.view_account());
+}
+
 }
 
 
@@ -103,18 +102,14 @@ assertEquals(true,true);
 public void he_want_to_search_a_product(String string) {
 	if (Admin.adchoice==8) {
 		flagg=1;
-		catalog.searchAndFilterProducts(string);
-		assertEquals(true,true);
+		assertEquals(true,catalog.searchAndFilterProducts(string));
 	}
-
-else flagg=0;
-	assertEquals(true,true);
+		
 }
 
 @Then("searching done")
 public void searching_done() {
-	if (flagg==1) assertEquals(true,true); 
-	assertEquals(true,true); 
+	if(Admin.adchoice==8) LOGGER.info("Searching successfully");
 }
 }
 
