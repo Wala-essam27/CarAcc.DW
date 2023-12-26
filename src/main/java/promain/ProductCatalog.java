@@ -6,32 +6,38 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class ProductCatalog {
-    public static List<String[][]> productCategories;
+    private static final String CATEGORY = "\nCategory '";
+	private static final String AVAILABILITY = "Availability: ";
+	private static final String PRICE = "Price: ";
+	private static final String DESCRIPTION = "Description: ";
+	private static final String IN_STOCK = "In Stock";
+	private static final String PRODUCT = "\nProduct: ";
+	public static List<String[][]> productCategories;
     private static final Logger LOGGER = Logger.getLogger(Customer.class.getName());
     public ProductCatalog() {
     	 ProductCatalog.productCategories = new ArrayList<>();
 
         String[][] InteriorCategory = new String[][] {
         	 {"Interior", null, null, null},
-             {"Seat Covers", "Custom-fit seat covers for comfort", "29.99", "In Stock"},
-             {"Floor Mats", "Durable and easy to clean floor mats", "19.99", "In Stock"},
-             {"Steering Wheel Cover", "Stylish cover for a comfortable grip", "14.99", "In Stock"},
+             {"Seat Covers", "Custom-fit seat covers for comfort", "29.99", IN_STOCK},
+             {"Floor Mats", "Durable and easy to clean floor mats", "19.99", IN_STOCK},
+             {"Steering Wheel Cover", "Stylish cover for a comfortable grip", "14.99", IN_STOCK},
              {null, null, null, null}
         };
 
         String[][] ExteriorCategory = new String[][] {
         	{"Exterior", null, null, null},
-            {"Car Wax", "Protects and enhances the car's exterior shine", "9.99", "In Stock"},
-            {"Windshield Wipers", "High-quality wipers for clear visibility", "7.99", "In Stock"},
-            {"License Plate Frame", "Customizable frame for a personal touch", "5.99", "In Stock"},
+            {"Car Wax", "Protects and enhances the car's exterior shine", "9.99", IN_STOCK},
+            {"Windshield Wipers", "High-quality wipers for clear visibility", "7.99", IN_STOCK},
+            {"License Plate Frame", "Customizable frame for a personal touch", "5.99", IN_STOCK},
             {null, null, null, null}
         };
         
         String[][] ElectronicsCategory = new String[][] {
         	 {"Electronics", null, null, null},
-             {"Car Charger", "Dual USB port charger for devices", "12.99", "In Stock"},
-             {"Bluetooth Car Kit", "Hands-free calling and music streaming", "24.99", "In Stock"},
-             {"GPS Navigation System", "Turn-by-turn directions for easy navigation", "79.99", "In Stock"},
+             {"Car Charger", "Dual USB port charger for devices", "12.99", IN_STOCK},
+             {"Bluetooth Car Kit", "Hands-free calling and music streaming", "24.99", IN_STOCK},
+             {"GPS Navigation System", "Turn-by-turn directions for easy navigation", "79.99", IN_STOCK},
              {null, null, null, null}
         };
 
@@ -51,11 +57,11 @@ LOGGER.info("\nEnter Category details:");
         LOGGER.info("\nEnter product details:"+
         "\nProduct Name: ");
         String name = scanne.nextLine();
-        LOGGER.info("Description: ");
+        LOGGER.info(DESCRIPTION);
         String description = scanne.nextLine();
-        LOGGER.info("Price: ");
+        LOGGER.info(PRICE);
         String price = scanne.nextLine();
-        LOGGER.info("Availability: ");
+        LOGGER.info(AVAILABILITY);
         String availability = scanne.nextLine();
         String[][] newCategory = new String[][] {
           	 {categoryName, null, null, null},
@@ -82,16 +88,16 @@ LOGGER.info("\nEnter Category details:");
                         return;
                     }
                 }
-                LOGGER.warning("\nCategory '" + categoryName + "' is full. Cannot add more products.");
+                LOGGER.warning(CATEGORY + categoryName + "' is full. Cannot add more products.");
                 return;
             }
         }
-        LOGGER.warning("\nCategory '" + categoryName + "' not found.");
+        LOGGER.warning(CATEGORY + categoryName + "' not found.");
     }
     public boolean viewAllProducts() {
         if (productCategories.isEmpty()) {
         	LOGGER.warning("\nNo products in the catalog.");
-            return true;
+            return false;
         }
 
         LOGGER.info("\n All Products in the Catalog:\n");
@@ -102,10 +108,10 @@ LOGGER.info("\nEnter Category details:");
                 if (product[0] != null && product[1] != null && product[2] != null && product[3] != null) {
                 	LOGGER.info(
                             "Category: " + category[0][0] + "\n" +
-                                    "Product: " + product[0] + "\n" +
-                                    "Description: " + product[1] + "\n" +
-                                    "Price: " + product[2] + "\n" +
-                                    "Availability: " + product[3] + "\n" +
+                                    PRODUCT + product[0] + "\n" +
+                                    DESCRIPTION + product[1] + "\n" +
+                                    PRICE + product[2] + "\n" +
+                                    AVAILABILITY + product[3] + "\n" +
                                     "------------------------"
                     );
                 }
@@ -138,10 +144,10 @@ LOGGER.info("\nEnter Category details:");
             for (String[] product : foundProducts) {
 
             	LOGGER.info(
-                                "\nProduct: " + product[0] + "\n" +
-                                "Description: " + product[1] + "\n" +
-                                "Price: " + product[2] + "\n" +
-                                "Availability: " + product[3] + "\n" +
+                                PRODUCT + product[0] + "\n" +
+                                DESCRIPTION + product[1] + "\n" +
+                                PRICE + product[2] + "\n" +
+                                AVAILABILITY + product[3] + "\n" +
                                 "------------------------"                );
             }
             }
@@ -156,18 +162,18 @@ LOGGER.info("\nEnter Category details:");
         for (String[][] category : productCategories) {
             for (String[] product : category) {
                 if (product != null && product[0] != null && product[0].equalsIgnoreCase(productName)) {
-                    // Found the product, set its information to null
+                   
                     product[0] = null;
                     product[1] = null;
                     product[2] = null;
                     product[3] = null;
-                    LOGGER.info("Product '" + productName + "' deleted.");
+                    LOGGER.info(PRODUCT + productName + "' deleted.");
                     return true;
                 }
             }
         }
 
-        LOGGER.warning("Product '" + productName + "' not found.");
+        LOGGER.warning(PRODUCT + productName + "' not found.");
         return false;
     }
 
@@ -194,13 +200,13 @@ LOGGER.info("\nEnter Category details:");
                     product[1] = newDescription;
                     product[2] = newPrice;
                     product[3] = newAvailability;
-                    LOGGER.info("\nProduct '" + productName + "' updated.");
+                    LOGGER.info(PRODUCT  + productName + "' updated.");
                     return true;
                 }
             }
         }
 
-        LOGGER.info("\nProduct '" + productName + "' not found.");
+        LOGGER.info(PRODUCT + productName + "' not found.");
         return false;
     }
 
