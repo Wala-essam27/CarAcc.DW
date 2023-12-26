@@ -43,6 +43,7 @@ public class ProductCatalog {
              {null, null, null, null}
         };
 
+        
         productCategories.add(ElectronicsCategory);
         productCategories.add(ExteriorCategory);
         productCategories.add(InteriorCategory);

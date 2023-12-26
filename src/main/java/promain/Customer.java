@@ -22,7 +22,7 @@ public class Customer {
 		Scanner scanner = new Scanner(System.in);
 		 while ( true) {
 			 LOGGER.info("\n========= Customer Menu: ===========\n" +
-		                "1.\n View profile.\n" +
+		                "\\n1. View profile.\n" +
 		                "2. Edit profile.\n" +
 		                "3. View products.\n" +
 		                "4. Search products.\n" +
@@ -66,8 +66,20 @@ public class Customer {
 	                	break;
 	                case 0:
 	                	 LOGGER.info("\nExiting the customer menu. Goodbye!");
-	                    scanner.close();
-	                    return true;
+	                	 LOGGER.info("\nDid you want to sign again? (yes or no):");
+	                     scanner.nextLine(); 
+	                     String y = scanner.nextLine();
+	                     if (y.toLowerCase().equals("yes")){Auth.sign();
+	                     if (Auth.email.equals(Auth.emails[0])) {
+	             			LOGGER.info("\nWelcome Our CUSTOMER!");
+	             			    		Admin.list();
+	             			}else LOGGER.info("\nInvalid Email or pass.");
+	                     }
+	                    
+	                     else 
+	                     	LOGGER.info("\nExiting the PROGRAM. Goodbye!");
+	                     scanner.close();
+	                     return true;
 	 	                default:
 	                	 LOGGER.warning("\nInvalid choice. Please enter a valid option.");
 	            }

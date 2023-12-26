@@ -48,6 +48,7 @@ if ((email.equals(emails[0])&&password.equals(emails[4]))||
 			LOGGER.info("\nWelcome Our CUSTOMER!");
 			flag =2;
 			
+			
 			return flag;
 			}
 		else if (email.equals(emails[3])&&p.equals("pass")) {
