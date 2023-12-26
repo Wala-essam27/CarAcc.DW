@@ -17,11 +17,12 @@ public class OrderManager {
 
     public void purchaseProduct(ProductCatalog catalog) {
     	 catalog.viewAllProducts();
-        Scanner scanner = new Scanner(System.in);
+        @SuppressWarnings("resource")
+		Scanner scanner = new Scanner(System.in);
         LOGGER.info("\nEnter the name of the product you want to purchase:");
         String productName = scanner.nextLine();
 
-        for (String[][] category : catalog.productCategories) {
+        for (String[][] category : ProductCatalog.productCategories) {
             for (String[] product : category) {
                 if (product != null && product[0] != null && product[0].equalsIgnoreCase(productName)) {
                     orders.add(product);
@@ -31,26 +32,25 @@ public class OrderManager {
             }
         }
 
-        LOGGER.info(PRODUCT2 + productName + "' not found in the catalog.");
+        LOGGER.info(String.format("%s '%s' not found in the catalog.", PRODUCT2, productName));
+
     }
 
     public void viewOrder() {
         if (orders.isEmpty()) {
-            System.out.println(NO_PRODUCTS_IN_THE_ORDER);
+            LOGGER.info(NO_PRODUCTS_IN_THE_ORDER);
         } else {
             System.out.println("\nOrder List:\n");
             double totalPrice = 0.0;
             for (String[] product : orders) {
-            	 LOGGER.info(
-                         "\nProduct: " + product[0] + "\n" +
-                                 "Description: " + product[1] + "\n" +
-                                 "Price: " + product[2] + "\n" +
-                                 "Availability: " + product[3] + "\n" +
-                                 "------------------------"
-                 );
+            	LOGGER.info(String.format(
+            	        "\nProduct: %s\nDescription: %s\nPrice: %s\nAvailability: %s\n------------------------",
+            	        product[0], product[1], product[2], product[3]
+            	));
                 totalPrice += Double.parseDouble(product[2]);
             }
-            LOGGER.info("\nTotal Price: " + totalPrice+"\n");
+            LOGGER.info(String.format("\nTotal Price: %s\n", totalPrice));
+
         }
     }
     
@@ -68,10 +68,12 @@ public class OrderManager {
             String[] product = orders.get(i);
             if (product[0].equalsIgnoreCase(productName)) {
                 orders.remove(i);
-                LOGGER.info(PRODUCT2 + productName + "' deleted from the order.");
+                LOGGER.info(String.format("%s '%s' deleted from the order.", PRODUCT2, productName));
+
                 return;
             }
         }
 
-        LOGGER.info(PRODUCT2 + productName + "' not found in the order.");
+        LOGGER.info(String.format("%s '%s' not found in the order.", PRODUCT2, productName));
+
     }}

@@ -1,12 +1,10 @@
 package promain;
 import java.util.logging.Logger;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 public class Customer {
+	private static final String S_S_N = "%s: %s%n";
 	private static final String PUT_A_NEW_PASSWARD = "\nPut a new Passward: ";
 	private static final String PUT_A_NEW_EMAIL = "\nPut a new Email: ";
 	private static final String PASSWORD = "Password: ";
@@ -56,9 +54,9 @@ public class Customer {
 	                     catalog.searchAndFilterProducts(searchKeyword);
 	                    break;
 	                case 5:
-	                	catalog.viewAllProducts();
+	                	Admin.catalog.viewAllProducts();
 	                
-	                  ord.purchaseProduct(catalog);
+	                  ord.purchaseProduct(Admin.catalog);
 	                     break; 
 	                case 6:
 	                	ord.viewOrder(); 
@@ -81,8 +79,8 @@ public class Customer {
 		LOGGER.info(
 			    String.format(
 			        "%ncustomer1%n" +
-			        "%s: %s%n" +
-			        "%s: %s%n",
+			        S_S_N +
+			        S_S_N,
 			        EMAIL, Auth.emails[1], PASSWORD, Auth.emails[5]
 			    )
 			);
@@ -158,11 +156,13 @@ public class Customer {
              String num = scanner.nextLine();
             
             if (num.equals("1")) {
+            	Auth.emails[1]=null;
+            	Auth.emails[5]=null;
             	LOGGER.info(
             		    String.format(
             		        "%n1. Customer2%n" +
-            		        "%s: %s%n" +
-            		        "%s: %s%n",
+            		        S_S_N +
+            		        S_S_N,
             		        EMAIL, Auth.emails[2], PASSWORD, Auth.emails[6]
             		    )
             		);
@@ -170,11 +170,13 @@ public class Customer {
             }
             
             else if (num.equals("2")) {
+            	Auth.emails[2]=null;
+            	Auth.emails[6]=null;
             	LOGGER.info(
             		    String.format(
             		        "%n1. Customer1%n" +
-            		        "%s: %s%n" +
-            		        "%s: %s%n",
+            		        S_S_N +
+            		        S_S_N,
             		        EMAIL, Auth.emails[1], PASSWORD, Auth.emails[5]
             		    )
             		);

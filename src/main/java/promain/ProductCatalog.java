@@ -75,7 +75,8 @@ LOGGER.info("\nEnter Category details:");
         
            
            
-           LOGGER.info("New product category '" + categoryName + "' added.");
+           LOGGER.info(String.format("New product category '%s' added.", categoryName));
+
         return true;
         
     }

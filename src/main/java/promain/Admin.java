@@ -12,9 +12,10 @@ public class Admin {
 	 private Admin() {
 		    throw new IllegalStateException("Utility class");
 		  }
+	 static ProductCatalog catalog = new ProductCatalog();
 	
 	public static boolean list(){ 
-    ProductCatalog catalog = new ProductCatalog();
+   
 	Scanner scanner = new Scanner(System.in);
 while (true) {
 	LOGGER.info(
@@ -90,6 +91,18 @@ while (true) {
         	break;
         case 0:
         	LOGGER.info("\nExiting the admin menu. Goodbye!");
+        	LOGGER.info("\nDid you want to sign again? (yes or no):");
+            scanner.nextLine(); 
+            String y = scanner.nextLine();
+            if (y.toLowerCase().equals("yes")){Auth.sign();
+            if (Auth.email.equals(Auth.emails[1])||Auth.email.equals(Auth.emails[2])) {
+    			LOGGER.info("\nWelcome Our CUSTOMER!");
+    			    		Customer.list();
+    			}else LOGGER.info("\nInvalid Email or pass.");
+            }
+           
+            else 
+            	LOGGER.info("\nExiting the PROGRAM. Goodbye!");
             scanner.close();
             return true;
         default:

@@ -1,31 +1,29 @@
-Feature: What admin can do?
-  I want to use this template for my feature file
- Manage product categories (add, edit, delete).
-Add and update product listings.
- View and manage customer accounts.
-- Schedule and manage installation appointments.
+Feature: What customer can do?
+ Browse products, make purchases, and view orders.
+  
+  Scenario: browsing product
+  When he want to browsing 
+  Then showing all products
 
-  Scenario: Manage product
-    When add new category
-    Then adding it successfully
-    When choose which category and add
-    Then adding them to correct catagory
-    When choose which category and edit
-    Then done editing
-    When choose which product and delete
-    Then done deleting
+ Scenario: make purchase
+ When showing the catalog
+ Then choose a product  
+ And adding them to orders
+ 
+ Scenario: view orders
+ When he want to view order
+ Then printing the orders
    
 
- 
-  Scenario:  View and manage customer accounts
-    When view customer accounts
-    Then printing cust accounts
-    When update customer accounts
-    Then printing cust accounts
-    
-    
- Scenario: searching product
+Scenario: edit profile
+  When he want to edit profile 
+  Then editing done 
+  
+  
+Scenario: searching product
   When he want to search a product 'key'
   Then searching done 
+  
+  
   
   
