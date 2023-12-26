@@ -50,6 +50,7 @@ if ((email.equals(emails[0])&&password.equals(emails[4]))||
 			
 			return flag;
 			}
+		
 		else if (email.equals(emails[3])&&ps.equals("pass")) {
 			LOGGER.info("\nWelcome Our INSTALLER!"); 
 			flag =3;
