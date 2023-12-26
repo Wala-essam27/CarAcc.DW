@@ -6,7 +6,9 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class ProductCatalog {
-    private static final String CATEGORY = "\nCategory '";
+    private static final String NOT_FOUND = "' not found.";
+	private static final String ENTER_PRODUCT_DETAILS = "\nEnter product details:";
+	private static final String CATEGORY = "\nCategory '";
 	private static final String AVAILABILITY = "Availability: ";
 	private static final String PRICE = "Price: ";
 	private static final String DESCRIPTION = "Description: ";
@@ -54,7 +56,7 @@ LOGGER.info("\nEnter Category details:");
         scanne.nextLine(); 
         LOGGER.info("\nCategory Name: ");
         String categoryName = scanne.nextLine();
-        LOGGER.info("\nEnter product details:"+
+        LOGGER.info(ENTER_PRODUCT_DETAILS+
         "\nProduct Name: ");
         String name = scanne.nextLine();
         LOGGER.info(DESCRIPTION);
@@ -92,7 +94,7 @@ LOGGER.info("\nEnter Category details:");
                 return;
             }
         }
-        LOGGER.warning(CATEGORY + categoryName + "' not found.");
+        LOGGER.warning(CATEGORY + categoryName + NOT_FOUND);
     }
     public boolean viewAllProducts() {
         if (productCategories.isEmpty()) {
@@ -173,13 +175,13 @@ LOGGER.info("\nEnter Category details:");
             }
         }
 
-        LOGGER.warning(PRODUCT + productName + "' not found.");
+        LOGGER.warning(PRODUCT + productName + NOT_FOUND);
         return false;
     }
 
     public boolean editProduct() {
     	Scanner scnner = new Scanner(System.in);
-    	LOGGER.info("\nEnter product details:"+
+    	LOGGER.info(ENTER_PRODUCT_DETAILS+
     	    			
     	            "\nProduct Name: ");
         String productName = scnner.nextLine();
@@ -206,7 +208,7 @@ LOGGER.info("\nEnter Category details:");
             }
         }
 
-        LOGGER.info(PRODUCT + productName + "' not found.");
+        LOGGER.info(PRODUCT + productName + NOT_FOUND);
         return false;
     }
 

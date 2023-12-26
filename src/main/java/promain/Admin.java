@@ -10,7 +10,7 @@ public class Admin {
 	public static int adchoice=0;
 	private static final Logger LOGGER = Logger.getLogger(Admin.class.getName());
 	Admin(){
-		
+		adchoice=0;
 	}
 	
 	public static boolean list(){ 

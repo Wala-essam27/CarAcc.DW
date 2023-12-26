@@ -7,12 +7,16 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Customer {
+	private static final String PUT_A_NEW_PASSWARD = "\nPut a new Passward: ";
+	private static final String PUT_A_NEW_EMAIL = "\nPut a new Email: ";
+	private static final String PASSWORD = "Password: ";
+	private static final String EMAIL = "Email: ";
 	static OrderManager ord = new OrderManager();
 	static int flag=0;
 	public static int custchoice=0;
 	private static final Logger LOGGER = Logger.getLogger(Customer.class.getName());
 	public Customer() {
-		
+		custchoice=0;
 	    }
 	@SuppressWarnings("resource")
 	public static boolean list(){
@@ -66,9 +70,10 @@ public class Customer {
 	                case 0:
 	                	 LOGGER.info("\nExiting the customer menu. Goodbye!");
 	                    scanner.close();
+	                    return true;
 	 	                default:
 	                	 LOGGER.warning("\nInvalid choice. Please enter a valid option.");
-	            }return true;
+	            }
 	        }
 
 	}
@@ -76,8 +81,8 @@ public class Customer {
 	{
 		  LOGGER.info(
 	                "\ncustomer1  \n" +
-	                "Email: " + Auth.emails[1] + "\n" +
-	                "Password: " + Auth.emails[5] + "\n");
+	                EMAIL + Auth.emails[1] + "\n" +
+	                PASSWORD + Auth.emails[5] + "\n");
 		return true;
     	
 	}
@@ -86,11 +91,11 @@ public class Customer {
 	public static boolean view_account()
 	{
 		LOGGER.info("\n1. Customer1 \n" +
-	                "Email: " + Auth.emails[1] + "\n" +
-	                "Password: " + Auth.emails[5] + "\n" +
+	                EMAIL + Auth.emails[1] + "\n" +
+	                PASSWORD + Auth.emails[5] + "\n" +
 	                "\n2. Customer2 \n" +
-	                "Email: " + Auth.emails[2] + "\n" +
-	                "Password: " + Auth.emails[6] + "\n");
+	                EMAIL + Auth.emails[2] + "\n" +
+	                PASSWORD + Auth.emails[6] + "\n");
 		return true;
     	
 	}
@@ -103,17 +108,17 @@ public class Customer {
 		            "\nCustomer Number: ");
          String CustomerN = scanner.nextLine();
          if (CustomerN.equals("1")) {
-        	 LOGGER.info("\nPut a new Email: ");
+        	 LOGGER.info(PUT_A_NEW_EMAIL);
              String em = scanner.nextLine();
-             LOGGER.info("\nPut a new Passward: ");
+             LOGGER.info(PUT_A_NEW_PASSWARD);
              String pass = scanner.nextLine();
              Auth.emails[1]=em;
              Auth.emails[5]=pass;
          }
          else if (CustomerN.equals("2")) {
-        	 LOGGER.info("\nPut a new Email: ");
+        	 LOGGER.info(PUT_A_NEW_EMAIL);
              String em = scanner.nextLine();
-             LOGGER.info("\nPut a new Passward: ");
+             LOGGER.info(PUT_A_NEW_PASSWARD);
              String pass = scanner.nextLine();
              Auth.emails[2]=em;
              Auth.emails[6]=pass;
@@ -126,9 +131,9 @@ public class Customer {
 		view_myaccount();
 		Scanner scanner = new Scanner(System.in);
 		LOGGER.info(" \nEnter the details: ");
-		LOGGER.info("\nPut a new Email: ");
+		LOGGER.info(PUT_A_NEW_EMAIL);
              String em = scanner.nextLine();
-             LOGGER.info("\nPut a new Passward: ");
+             LOGGER.info(PUT_A_NEW_PASSWARD);
              String pass = scanner.nextLine();
              Auth.emails[1]=em;
              Auth.emails[5]=pass;   
@@ -146,16 +151,16 @@ public class Customer {
             if (num.equals("1")) {
             	 LOGGER.info(
                          "\n1. Customer2 \n" +
-                                 "Email: " + Auth.emails[2] + "\n" +
-                                 "Password: " + Auth.emails[6] + "\n"
+                                 EMAIL + Auth.emails[2] + "\n" +
+                                 PASSWORD + Auth.emails[6] + "\n"
                  );
             }
             
             else if (num.equals("2")) {
             	 LOGGER.info(
                          "\n1. Customer1 \n" +
-                                 "Email: " + Auth.emails[1] + "\n" +
-                                 "Password: " + Auth.emails[5] + "\n" 
+                                 EMAIL + Auth.emails[1] + "\n" +
+                                 PASSWORD + Auth.emails[5] + "\n" 
                                 
                  );
             }

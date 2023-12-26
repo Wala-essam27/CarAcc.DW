@@ -6,7 +6,9 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class OrderManager {
-    private List<String[]> orders;
+    private static final String NO_PRODUCTS_IN_THE_ORDER = "\nNo products in the order.";
+	private static final String PRODUCT2 = "\nProduct '";
+	private List<String[]> orders;
     private static final Logger LOGGER = Logger.getLogger(OrderManager.class.getName());
     public OrderManager() {
         this.orders = new ArrayList<>();
@@ -23,18 +25,18 @@ public class OrderManager {
             for (String[] product : category) {
                 if (product != null && product[0] != null && product[0].equalsIgnoreCase(productName)) {
                     orders.add(product);
-                    LOGGER.info("\nProduct '" + productName + "' added to the order.");
+                    LOGGER.info(PRODUCT2 + productName + "' added to the order.");
                     return;
                 }
             }
         }
 
-        LOGGER.info("\nProduct '" + productName + "' not found in the catalog.");
+        LOGGER.info(PRODUCT2 + productName + "' not found in the catalog.");
     }
 
     public void viewOrder() {
         if (orders.isEmpty()) {
-            System.out.println("No products in the order.");
+            System.out.println(NO_PRODUCTS_IN_THE_ORDER);
         } else {
             System.out.println("\nOrder List:\n");
             double totalPrice = 0.0;
@@ -54,7 +56,7 @@ public class OrderManager {
     
     public void deleteOrder() {
         if (orders.isEmpty()) {
-        	LOGGER.warning("\nNo products in the order.");
+        	LOGGER.warning(NO_PRODUCTS_IN_THE_ORDER);
             return;
         }
 
@@ -66,10 +68,10 @@ public class OrderManager {
             String[] product = orders.get(i);
             if (product[0].equalsIgnoreCase(productName)) {
                 orders.remove(i);
-                LOGGER.info("\nProduct '" + productName + "' deleted from the order.");
+                LOGGER.info(PRODUCT2 + productName + "' deleted from the order.");
                 return;
             }
         }
 
-        LOGGER.info("\nProduct '" + productName + "' not found in the order.");
+        LOGGER.info(PRODUCT2 + productName + "' not found in the order.");
     }}
