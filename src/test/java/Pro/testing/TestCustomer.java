@@ -18,7 +18,6 @@ public class TestCustomer {
 	Customer cust;
 	OrderManager ordm;
 	ProductCatalog catalog = new ProductCatalog();
-	@SuppressWarnings("static-access")
 	@When("he want to browsing")
 	public void he_want_to_browsing() {
 		 if (Auth.gohome(Auth.email, Auth.password) == 2)
@@ -28,13 +27,12 @@ public class TestCustomer {
 		assertEquals(true,Customer.list());
 		}
 
-		
-	else flagg=0;
 	}
 
+	@SuppressWarnings("static-access")
 	@Then("showing all products")
 	public void showing_all_products() {
-		if (flagg==1)
+		if (flagg==1&&cust.custchoice==3)
 		assertEquals(true,	catalog.viewAllProducts());
 		
 	}
@@ -101,5 +99,4 @@ else flagg=0;
 			LOGGER.info("Editng successfully.");
 	}
 }
-
 

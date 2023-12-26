@@ -57,7 +57,7 @@ public void he_enter_the_valid_email_and_password() {
 public void request_to_sign_again() {
 	if (flagg == 0)
 	
-		LOGGER .info("PLEASE try again.");
+		assertEquals(true,Auth.sign());
 	
 	
 	

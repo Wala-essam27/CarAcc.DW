@@ -9,12 +9,10 @@ import java.util.Scanner;
 public class Admin {
 	public static int adchoice=0;
 	private static final Logger LOGGER = Logger.getLogger(Admin.class.getName());
-	static boolean loggedIn = true;
 	 private Admin() {
 		    throw new IllegalStateException("Utility class");
 		  }
 	
-	@SuppressWarnings("static-access")
 	public static boolean list(){ 
     ProductCatalog catalog = new ProductCatalog();
 	Scanner scanner = new Scanner(System.in);
@@ -38,9 +36,9 @@ while (true) {
 
 		
 		
-	scanner.next();	   
+		    
 	adchoice = scanner.nextInt();
-    
+	
 		switch (adchoice) {
         case 1:
              catalog.viewAllProducts();
@@ -87,25 +85,16 @@ while (true) {
         case 9:
         	Customer.delete_account();
              break;
+        case 10:
+        	
+        	break;
         case 0:
-        	 LOGGER.info("\nExiting the admin menu. Do you want to sign in again? (yes/no): ");
-
-             String signInAgainChoice = scanner.next().toLowerCase();
-             if (signInAgainChoice.equals("yes")) {
-                 Auth aa = new Auth();
-                 aa.sign();
-                 
-                 loggedIn = Auth.valid();
-              
-             } else {
-                 LOGGER.info("\nExiting the program. Goodbye!");
-                 scanner.close();
-                 loggedIn = false;
-             }break;
+        	LOGGER.info("\nExiting the admin menu. Goodbye!");
+            scanner.close();
+            return true;
         default:
         	LOGGER.warning("\nInvalid choice. Please enter a valid option.");
             } 
 	
-		return true;}
-}}
+	}}}
 	

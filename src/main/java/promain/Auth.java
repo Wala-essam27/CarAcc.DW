@@ -24,19 +24,20 @@ if ((email.equals(emails[0])&&password.equals(emails[4]))||
 	else return false;
 	}
 	
-	
-	public static boolean sign() {
-	    try (Scanner s = new Scanner(System.in)) {
-	        LOGGER.info("email: ");
-	        email = s.next();
+	@SuppressWarnings("resource")
+	public static boolean sign( ) {
+		
+		Scanner s = new Scanner(System.in);
 
-	        LOGGER.info("password: ");
-	        password = s.next();
-	        return true;
-	    }
+		   LOGGER.info("email: ");
+		      email = s.next();
+
+		      LOGGER.info("password: ");
+		     password = s.next();
+			return true;		      
 	}
 
-	public static int gohome(String email,String ps) {
+	public static int gohome(String email,String password) {
 		if (email.equals(emails[0])) {
 			LOGGER.info("\nWelcome Our ADMIN!"); 
 	     flag =1;
@@ -49,8 +50,7 @@ if ((email.equals(emails[0])&&password.equals(emails[4]))||
 			
 			return flag;
 			}
-		
-		else if (email.equals(emails[3])&&ps.equals("pass")) {
+		else if (email.equals(emails[3])&&password.equals("pass")) {
 			LOGGER.info("\nWelcome Our INSTALLER!"); 
 			flag =3;
 			
@@ -59,5 +59,4 @@ if ((email.equals(emails[0])&&password.equals(emails[4]))||
 		return 0;
 	}
 }
-
 
