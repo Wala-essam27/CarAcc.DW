@@ -23,7 +23,7 @@ public void add_new_category() {
 	
 	 if (Auth.gohome(Auth.email, Auth.password) == 1)
 		{assertEquals(true,add.list());
-	
+	       
 		}
 	}
 

@@ -24,17 +24,16 @@ if ((email.equals(emails[0])&&password.equals(emails[4]))||
 	else return false;
 	}
 	
-	@SuppressWarnings("resource")
-	public static boolean sign( ) {
-		
-		Scanner s = new Scanner(System.in);
+	
+	public static boolean sign() {
+	    try (Scanner s = new Scanner(System.in)) {
+	        LOGGER.info("email: ");
+	        email = s.next();
 
-		   LOGGER.info("email: ");
-		      email = s.next();
-
-		      LOGGER.info("password: ");
-		     password = s.next();
-			return true;		      
+	        LOGGER.info("password: ");
+	        password = s.next();
+	        return true;
+	    }
 	}
 
 	public static int gohome(String email,String ps) {
