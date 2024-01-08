@@ -15,11 +15,11 @@ public class ProductCatalog {
 	private static final String IN_STOCK = "In Stock";
 	private static final String PRODUCT = "\nProduct: ";
 	public static List<String[][]> productCategories;
-    private static final Logger LOGGER = Logger.getLogger(Customer.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(ProductCatalog.class.getName());
     public ProductCatalog() {
     	 ProductCatalog.productCategories = new ArrayList<>();
 
-        String[][] InteriorCategory = new String[][] {
+        String[][] interiorCategory = new String[][] {
         	 {"Interior", null, null, null},
              {"Seat Covers", "Custom-fit seat covers for comfort", "29.99", IN_STOCK},
              {"Floor Mats", "Durable and easy to clean floor mats", "19.99", IN_STOCK},
@@ -27,7 +27,7 @@ public class ProductCatalog {
              {null, null, null, null}
         };
 
-        String[][] ExteriorCategory = new String[][] {
+        String[][] exteriorCategory = new String[][] {
         	{"Exterior", null, null, null},
             {"Car Wax", "Protects and enhances the car's exterior shine", "9.99", IN_STOCK},
             {"Windshield Wipers", "High-quality wipers for clear visibility", "7.99", IN_STOCK},
@@ -35,7 +35,7 @@ public class ProductCatalog {
             {null, null, null, null}
         };
         
-        String[][] ElectronicsCategory = new String[][] {
+        String[][] electronicsCategory = new String[][] {
         	 {"Electronics", null, null, null},
              {"Car Charger", "Dual USB port charger for devices", "12.99", IN_STOCK},
              {"Bluetooth Car Kit", "Hands-free calling and music streaming", "24.99", IN_STOCK},
@@ -44,9 +44,9 @@ public class ProductCatalog {
         };
 
         
-        productCategories.add(ElectronicsCategory);
-        productCategories.add(ExteriorCategory);
-        productCategories.add(InteriorCategory);
+        productCategories.add(electronicsCategory);
+        productCategories.add(exteriorCategory);
+        productCategories.add(interiorCategory);
     }
 
 

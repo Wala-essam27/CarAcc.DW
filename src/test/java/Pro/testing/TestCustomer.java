@@ -87,7 +87,7 @@ else flagg=0;
 		
 			if (cust.custchoice==2) {
 				flagg=1;
-				cust.edit_myaccount();
+				cust.editMyaccount();
 			}
 		else	flagg=0;
 	}

@@ -78,13 +78,13 @@ while (true) {
              catalog.searchAndFilterProducts(searchKeyword);
             break;
         case 7:
-        	Customer.view_account();
+        	Customer.viewAccount();
         	break;
         case 8:
-        	Customer.edit_account();
+        	Customer.editAccount();
         	 break;
         case 9:
-        	Customer.delete_account();
+        	Customer.deleteAccount();
              break;
         case 10:
         	

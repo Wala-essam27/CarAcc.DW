@@ -40,16 +40,16 @@ public class OrderManager {
         if (orders.isEmpty()) {
             LOGGER.info(NO_PRODUCTS_IN_THE_ORDER);
         } else {
-            System.out.println("\nOrder List:\n");
+            LOGGER.info("\nOrder List:\n");
             double totalPrice = 0.0;
             for (String[] product : orders) {
             	LOGGER.info(String.format(
-            	        "\nProduct: %s\nDescription: %s\nPrice: %s\nAvailability: %s\n------------------------",
+            	        "%nProduct: %s%nDescription: %s%nPrice: %s%nAvailability: %s%n------------------------",
             	        product[0], product[1], product[2], product[3]
             	));
                 totalPrice += Double.parseDouble(product[2]);
             }
-            LOGGER.info(String.format("\nTotal Price: %s\n", totalPrice));
+            LOGGER.info(String.format("%nTotal Price: %s%n", totalPrice));
 
         }
     }

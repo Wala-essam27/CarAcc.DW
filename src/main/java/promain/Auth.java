@@ -40,24 +40,18 @@ if ((email.equals(emails[0])&&password.equals(emails[4]))||
 	public static int gohome(String email,String p) {
 		if (email.equals(emails[0])) {
 			LOGGER.info("\nWelcome Our ADMIN!"); 
-	     flag =1;
-		
-		return flag;
+	     flag =1;		
 		}
 		else if (email.equals(emails[1])||email.equals(emails[2])) {
 			LOGGER.info("\nWelcome Our CUSTOMER!");
-			flag =2;
-			
-			
-			return flag;
+			flag =2;		
 			}
 		else if (email.equals(emails[3])&&p.equals("pass")) {
 			LOGGER.info("\nWelcome Our INSTALLER!"); 
 			flag =3;
 			
-			return flag;
 			}
-		return 0;
+		return flag;
 	}
 }
 

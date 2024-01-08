@@ -68,7 +68,7 @@ if (flagg==1) assertEquals(true,catalog.deleteProduct());
 public void view_customer_accounts() {
 	if (Admin.adchoice==8) {
 		flagg=1;
-		assertEquals(true,cust.view_account());
+		assertEquals(true,cust.viewAccount());
 	
 	}
 
@@ -80,7 +80,7 @@ public void view_customer_accounts() {
 public void update_customer_accounts() {
 	if (Admin.adchoice==8) {
 		flagg=1;
-		assertEquals(true,cust.edit_account());
+		assertEquals(true,cust.editAccount());
 	
 		
 	}
@@ -91,7 +91,7 @@ else flagg=0;}
 @Then("printing cust accounts")
 public void printing_cust_accounts() {
 if (flagg==1 && Admin.adchoice==7)
-	{assertEquals(true,cust.view_account());
+	{assertEquals(true,cust.viewAccount());
 }
 
 }

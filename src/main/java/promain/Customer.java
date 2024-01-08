@@ -39,10 +39,10 @@ public class Customer {
 	        
 	            switch (custchoice) {
 	                case 1:
-	                	view_myaccount();
+	                	viewMyaccount();
 	                	break;
 	                case 2:
-	                	edit_myaccount();
+	                	editMyaccount();
 	                    break;
 	                case 3:
 	                	catalog.viewAllProducts();
@@ -86,7 +86,7 @@ public class Customer {
 	        }
 
 	}
-	public static boolean view_myaccount()
+	public static boolean viewMyaccount()
 	{
 		LOGGER.info(
 			    String.format(
@@ -102,7 +102,7 @@ public class Customer {
 	}
 	
 	
-	public static boolean view_account()
+	public static boolean viewAccount()
 	{
 		LOGGER.info(
 			    String.format(
@@ -119,9 +119,9 @@ public class Customer {
     	
 	}
 	
-	public static boolean edit_account()
+	public static boolean editAccount()
 	{
-		view_account();
+		viewAccount();
 		Scanner scanner = new Scanner(System.in);
 		LOGGER.info("\nEnter the details: "+
 		            "\nCustomer Number: ");
@@ -146,8 +146,8 @@ public class Customer {
     	
 	}
 	
-	public static boolean edit_myaccount(){
-		view_myaccount();
+	public static boolean editMyaccount(){
+		viewMyaccount();
 		Scanner scanner = new Scanner(System.in);
 		LOGGER.info(" \nEnter the details: ");
 		LOGGER.info(PUT_A_NEW_EMAIL);
@@ -161,8 +161,8 @@ public class Customer {
 	
 	
 	
-	public static boolean delete_account(){
-		view_account();
+	public static boolean deleteAccount(){
+		viewAccount();
 		LOGGER.info("\nPut the number of customer: ");
 		Scanner scanner = new Scanner(System.in);
              String num = scanner.nextLine();
