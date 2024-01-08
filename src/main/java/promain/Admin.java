@@ -90,6 +90,7 @@ while (true) {
         	
         	break;
         case 0:
+        	
         	LOGGER.info("\nExiting the admin menu. Goodbye!");
         	LOGGER.info("\nDid you want to sign again? (yes or no):");
             scanner.nextLine(); 
